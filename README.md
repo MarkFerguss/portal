@@ -58,4 +58,4 @@ Le module Portal consiste en un répértoire organisé labelisé '/Portal' dans 
 ```
 
 
-## L'organisation des versions ##
+## L'organisation des mises à jour ##
