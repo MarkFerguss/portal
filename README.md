@@ -9,8 +9,8 @@
 - Avant-propos
 - Plan
 - Introduction à Portal et son installation de base
-- Introduction au fichier `config.txt`
-- Introduction à la partie cachée de Portal : le code
+- Introduction aux différentes fonctionnalités offertes par Portal
+- Présentation de la face cachée de Portal : le code
 - L'organisation des versions
 
 
