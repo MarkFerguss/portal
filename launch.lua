@@ -59,6 +59,7 @@ local function _setup()
     i.monitor_scale = _read(20,8)
     i.group1_color = _ts(_read(19,9))
     i.group2_color = _ts(_read(19,10))
+    i.checks_entry_chest_name = "chest"
     i.selected = 0
     i.last_dest = ""
     i.launch_event = [[/door open]]
@@ -209,6 +210,7 @@ setWindows() reset()
 pulse()
 shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
 shell.run(index.launch_event)
+if _tb(index.checks_entry) then shell.run("bg","/portal/moderator") end
   
 while true do
     reset()
