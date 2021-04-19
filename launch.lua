@@ -207,7 +207,7 @@ setWindows() reset()
 pulse()
 shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
 shell.run(index.launch_event)
-if _tb(index.checks_entry) then shell.run("bg","/portal/moderator") end
+if _tb(index.moderator.chest) then shell.run("bg","/portal/moderator") end
   
 while true do
     reset()
