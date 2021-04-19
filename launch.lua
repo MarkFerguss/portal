@@ -93,7 +93,7 @@ end
 local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
 local chestSize,selected = p.getInventorySize(),index.selected
-local side,rside = index.chest_side,f.rvdir(index.chest_side)
+local side,rside = index.chest_side,f._rvdir(index.chest_side)
 local w,h = m.getSize()
  
 function vn(arg) return arg ~= nil end
