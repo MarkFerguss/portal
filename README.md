@@ -38,7 +38,7 @@ Et voici à quoi peut ressembler l'interface une fois installée :
 
 ![Me prévenir si l'image ne s'affiche pas](https://i.ibb.co/RHTm46m/2020-06-05-21-24-11.png)
 
-**NOTE: Nous pouvons voir à gauche un dépositoir pour les charms qui peut être automatisé par le même programme qui affiche l'interface
+**NOTE: Nous pouvons voir à gauche un dépositoir pour les charms qui peut être automatisé par le même programme qui affiche l'interface**
 
 ### Utilisation de Portal ###
 
@@ -46,8 +46,29 @@ Et voici à quoi peut ressembler l'interface une fois installée :
 
 ## Introduction aux différentes fonctionnalités offertes par Portal ##
 
+Toutes les fonctionnalités se configurent dès l'installation du programme et se présentent sous cette forme dans le fichier config.txt.
+Cette masse de code peut paraître compliquée à comprendre mais chaque ligne a sa propre fonction, il suffit de mettre du sens sur le nom de chaque variable.
 
 
+```
+  chest_side = "west",
+  chest_type = "draconic_chest",
+  public_settings_access = "true",
+  use_soundAPI = "true",
+  use_monitor = "true",
+  monitor_scale = "1",
+  leave_event = "/door close",
+  launch_event = "/door open",
+  group1_color = "gold",
+  group2_color = "lime",
+  selected = 12,
+  last_dest = "",
+```
+
+1. 'chest_side' : cette variable permet d'indiquer au programme la direction du Draconic Receptacle par rapport au coffre répertoriant toutes les charms.
+2. 'chest_type' : qui peut également s'appeller 'chest_name' puisque la fonction utilisée accepte les deux (peripheral.find(...)). S'il s'agit d'un coffre Draconic, il faudra noter 'draconic_chest' et s'il s'agit d'un coffre vanilla, 'chest'. **NOTE : l'utilisation d'un réseau ME comme répertoire n'a pas encore été essayé et nécessite de toute manière des modifications dans certains blocs du code. Mais si vous êtes calés en Computercraft, vous êtes bien évidemment libres d'essayer.**
+3. 'public_settings_access' : est une option qui permet d'afficher ou non le bouton des options dans lequel on peut changer les configurations de l'interface. Si vous êtes l'administrateur d'un serveur et que vous voulez exploiter le programme de manière à ce que les joueurs n'accèdent pas aux options d'une interface publique, alors je vous recommande d'écrire 'false' à cette ligne.
+4. 
 
 ## Présentation de la face cachée de Portal : le code ##
 
