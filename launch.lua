@@ -11,8 +11,9 @@ local str2 = [[
  * chest_side =                     (east,west...)
  * chest_type =                 draconic_chest...)
  * public_settings_access =           (true/false)
- * use_monitor =                      (true/false)
  * use_soundAPI =                     (true/false)
+ * use_monitor =                      (true/false)
+ * monitor_scale =                 (0.5/1/2/3/4/5)
  * group1_color =               (red,lime,gold...)
  * group2_color =               (red,lime,gold...)
 
@@ -31,6 +32,13 @@ local function update(path,input)
     f.close()
 end
 
+local function _load(path)
+    local f = fs.open(path,"r")
+    output = textutils.unserialise(f.readAll())
+    f.close()
+    return output
+end
+
 if not fs.exists("/portal/config.txt") then
     print(str1)
     e = read()
@@ -42,33 +50,38 @@ if not fs.exists("/portal/config.txt") then
         i.chest_side = _ts(_read(17,2))
         i.chest_type = _ts(_read(17,3))
         i.public_settings_access = _read(29,4)
-        i.use_monitor = _read(18,5)
-        i.use_soundAPI = _read(19,6)
-        i.group1_color = _ts(_read(19,7))
-        i.group2_color = _ts(_read(19,8))
+        i.use_soundAPI = _read(19,5)
+        i.use_monitor = _read(18,6)
+        i.monitor_scale = _read(20,7)
+        i.group1_color = _ts(_read(19,8))
+        i.group2_color = _ts(_read(19,9))
+        i.selected = 0
+        i.last_dest = ""
         update("/portal/config.txt",i)
         term.clear()
     end
 end
 
-local version = "1.13" --(31/07/2020)
-os.loadAPI("/portal/lib/f") -- a monitor API made by myself, it makes my life easier
-os.loadAPI("/portal/lib/API") -- search_bar
+-- DEBUT DU PROGRAMME
 
-local p = peripheral.find("draconic_chest") -- can change from "chest" instead of "draconic_chest"
-local m = peripheral.find("monitor") -- running on a monitor
+local version = "1.13" --(31/07/2020)
+os.loadAPI("/portal/lib/f") 
+os.loadAPI("/portal/lib/API") 
+
+local index = _load("/portal/config.txt")
+
+local p = peripheral.find(index.chest_type) 
 local q = peripheral.find("peripheral")
-m.setTextScale(1)
-local side,rside = "west","east" -- IMPORTANT
+
+if index.use_monitor then
+    m = peripheral.find("monitor")
+    m.setTextScale(index.monitor_scale)
+end
+
 local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
-local selected,last_dest = 0,"aucun"
-local chestSize = p.getInventorySize()
+local chestSize,selected = p.getInventorySize(),index.selected
 local w,h = m.getSize()
- 
-local VIP = {"TheBaslez","SesameChocolat","Jaguar","LeChikito","jungleis26","Ertupop","Veine","annelaure1912","Gaetann18",
-"GohuSan","boucherreb","Ciliste"}
-local GUIDES = {"zorinova","DaikiKaminari","maxou684"}
  
 function vn(arg) return arg ~= nil end
  
