@@ -65,35 +65,54 @@ end
  
 -- descendre plus bas conduit a un crash de l'editeur
  
+
+
 local tableAccents = {}
     tableAccents["ý"] = "y"
     tableAccents["ÿ"] = "y"
     tableAccents["À"] = "A"
+    tableAccents["Å"] = "A"
     tableAccents["Á"] = "A"
     tableAccents["Â"] = "A"
     tableAccents["Ã"] = "A"
     tableAccents["Ä"] = "A"
+    tableAccents["à"] = "a"
+    tableAccents["â"] = "a"
+    tableAccents["ä"] = "a"
     tableAccents["Ç"] = "C"
     tableAccents["È"] = "E"
     tableAccents["É"] = "E"
     tableAccents["Ê"] = "E"
     tableAccents["Ë"] = "E"
+    tableAccents["é"] = "e"
+    tableAccents["è"] = "e"
+    tableAccents["ë"] = "e"
+    tableAccents["ê"] = "e"
     tableAccents["Ì"] = "I"
     tableAccents["Í"] = "I"
     tableAccents["Î"] = "I"
     tableAccents["Ï"] = "I"
+    tableAccents["î"] = "i"
+    tableAccents["ï"] = "i"
+    tableAccents["ì"] = "i"
     tableAccents["Ñ"] = "N"
     tableAccents["Ò"] = "O"
     tableAccents["Ó"] = "O"
     tableAccents["Ô"] = "O"
     tableAccents["Õ"] = "O"
     tableAccents["Ö"] = "O"
+    tableAccents["ô"] = "o"
+    tableAccents["ö"] = "o"
+    tableAccents["ò"] = "o"
     tableAccents["Ù"] = "U"
     tableAccents["Ú"] = "U"
     tableAccents["Û"] = "U"
     tableAccents["Ü"] = "U"
+    tableAccents["û"] = "u"
+    tableAccents["ü"] = "e"
     tableAccents["Ý"] = "Y"
- 
+    tableAccents["ç"] = "c"
+    
 function normalize(str)
  return (str:gsub("[%z\1-\127\194-\244][\128-\191]*", tableAccents))
 end
