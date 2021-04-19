@@ -40,8 +40,6 @@ Et voici à quoi peut ressembler l'interface une fois installée :
 
 ![Me prévenir si l'image ne s'affiche pas](https://forum.mineaurion.com/assets/uploads/files/1590413050682-2020-05-25_15.22.24.png)
 
-**NOTE: Nous pouvons voir, à gauche, un dépositoire pour les charms qui peut être automatisé par le même programme qui affiche l'interface**
-
 ### Utilisation de Portal ###
 
 W.I.P
