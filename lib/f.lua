@@ -50,6 +50,12 @@ function cprint(m,x,y,text,color,bg_color)
   m.setBackgroundColor(colors.black)
   m.setTextColor(colors.white)
 end
+function _rvdir(_dir) -- reverse direction. Exemple : east --> west
+  if _dir == "east" then return "west" end
+  if _dir == "west" then return "east" end
+  if _dir == "south" then return "north" end
+  if _dir == "north" then return "south" end
+end
 function format_int(number)
   if number == nil then number = 0 end
   local i, j, minus, int, fraction = tostring(number):find('([-]?)(%d+)([.]?%d*)')
