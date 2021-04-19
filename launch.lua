@@ -9,7 +9,7 @@ Start setup ?
 local str2 = [[
 
  * chest_side =                     (east,west...)
- * chest_type =                 draconic_chest...)
+ * chest_type =                (draconic_chest...)
  * public_settings_access =           (true/false)
  * use_soundAPI =                     (true/false)
  * use_monitor =                      (true/false)
@@ -41,28 +41,36 @@ local function _load(path)
     return output
 end
 
+local function _setup()
+    term.clear()
+    term.setCursorPos(1,1)
+    print(str2)
+    local i = {}
+    i.chest_side = _ts(_read(17,2))
+    i.chest_type = _ts(_read(17,3))
+    i.public_settings_access = _read(29,4)
+    i.use_soundAPI = _read(19,5)
+    i.use_monitor = _read(18,6)
+    i.monitor_scale = _read(20,7)
+    i.group1_color = _ts(_read(19,8))
+    i.group2_color = _ts(_read(19,9))
+    i.selected = 0
+    i.last_dest = ""
+    i.launch_event = [[door open]]
+    i.leave_event = [[door close]]
+    update("/portal/config.txt",i)
+    term.clear()
+end
+
 if not fs.exists("/portal/config.txt") then
-    print(str1)
-    e = read()
-    if e == "y" then
-        term.clear()
-        term.setCursorPos(1,1)
-        print(str2)
-        local i = {}
-        i.chest_side = _ts(_read(17,2))
-        i.chest_type = _ts(_read(17,3))
-        i.public_settings_access = _read(29,4)
-        i.use_soundAPI = _read(19,5)
-        i.use_monitor = _read(18,6)
-        i.monitor_scale = _read(20,7)
-        i.group1_color = _ts(_read(19,8))
-        i.group2_color = _ts(_read(19,9))
-        i.selected = 0
-        i.last_dest = ""
-        i.launch_event = [[door open]]
-        i.leave_event = [[door close]]
-        update("/portal/config.txt",i)
-        term.clear()
+    if arg == "setup" then
+        _setup()
+    else
+        print(str1)
+        e = read()
+        if e == "y" then
+            _setup()
+        end
     end
 end
 
@@ -113,8 +121,8 @@ function setWindows()
         f.centerText(b1,2,"fermer","black","red") end}
     b2 = f.addWin(bg2,2,18,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
         f.centerText(b2,2,"quitter le module","black","red") end}
- b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
-  f.cprint(b3,1,1,"x","lightGray","white") end}
+    b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
+        f.cprint(b3,1,1,"x","lightGray","white") end}
 end
  
 function reset()
@@ -147,9 +155,10 @@ function getItems()
                 items[b] = {}
                 items[b][1] = a
                 items[b][2] = list_items[a].display_name
-                if API.check(VIP,items[b][2]) then items[b][3] = "orange"
+                --if API.check(VIP,items[b][2]) then items[b][3] = "orange"
                 --elseif API.check(GUIDES,items[b][2]) then items[b][3] = "lime"
-                else items[b][3] = "gray" end
+                --else items[b][3] = "gray" end
+                items[b][3] = "gray"
                 b = b + 1
             end
         end
