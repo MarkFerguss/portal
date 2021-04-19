@@ -83,11 +83,11 @@ end
     arg : the value you want to compare
     cv1 : value1
     cv2 : value2
-    param : < or / and >
+    param : <"or"/"and">
     
     parameters :
         - 'or' will compare if (arg == cv1 or arg == cv2)
-        - 'and' will compare if (arg == cv1 or arg == cv2)
+        - 'and' will compare if (arg == cv1 and arg == cv2)
 --]]
 function check(list,name)
     local check = false
@@ -187,6 +187,3 @@ end
         -           window.apply("reset")
         Now, the object background will be filled in black with the printed text 'This is a button'
 --]]
---print("WINDOWS = ",os.loadAPI("/lib/WindowAPI"))
---addSwitch = WindowAPI.addSwitch
---addSelector = WindowAPI.addSelector
