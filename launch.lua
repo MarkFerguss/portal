@@ -155,7 +155,7 @@ function getItems()
             if list_items[a] ~= nil and list_items[a].name == "teleporterMKI" then
                 items[b] = {}
                 items[b][1] = a
-                items[b][2] = list_items[a].display_name
+                items[b][2] = API.normalize(list_items[a].display_name)
                 --if API.check(VIP,items[b][2]) then items[b][3] = "orange"
                 --elseif API.check(GUIDES,items[b][2]) then items[b][3] = "lime"
                 --else items[b][3] = "gray" end
