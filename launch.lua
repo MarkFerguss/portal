@@ -77,7 +77,7 @@ local index = _load("/portal/config.txt")
 local p = peripheral.find(index.chest_type) 
 local q = peripheral.find("peripheral")
 
-if -tb(index.use_monitor) then
+if _tb(index.use_monitor) then
     m = peripheral.find("monitor")
     m.setTextScale(_tn(index.monitor_scale))
 end
