@@ -1,4 +1,9 @@
 local arg = ...
+local version = "1.13" --(31/07/2020)
+os.loadAPI("/portal/lib/f") 
+os.loadAPI("/portal/lib/API") 
+os.loadAPI("/portal/objects/widgets")
+os.loadAPI("/portal/objects/setup")
 
 local str1 = [[
 
@@ -25,21 +30,15 @@ end
 
 if not fs.exists("/portal/config.txt") then
     if arg == "setup" then
-        _setup()
+        setup.main()
     else
         print(str1)
         e = read()
         if e == "y" then
-            _setup()
+            setup.main()
         end
     end
 end
-
--- DEBUT DU PROGRAMME
-
-local version = "1.13" --(31/07/2020)
-os.loadAPI("/portal/lib/f") 
-os.loadAPI("/portal/lib/API") 
 
 local index = _load("/portal/config.txt")
 
@@ -60,7 +59,9 @@ local side,rside = index.chest_side,f._rvdir(index.chest_side)
 local w,h = m.getSize()
  
 function vn(arg) return arg ~= nil end
- 
+
+widgets.setWIndows()
+
 function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
     up_bar.apply("reset") down_bar.apply("reset") scroll_bar.apply("reset")
