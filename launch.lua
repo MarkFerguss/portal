@@ -6,28 +6,6 @@ Start setup ?
 
 ]]
 
-local str2 = [[
-
- * chest_side =                     (east,west...)
- * chest_type =                (draconic_chest...)
- * public_settings_access =           (true/false)
- * moderator_chest =                  (true/false)
- * use_soundAPI =                     (true/false)
- * use_monitor =                      (true/false)
- * monitor_scale =                 (0.5/1/2/3/4/5)
- * group1_color =               (red,lime,gold...)
- * group2_color =               (red,lime,gold...)
-
-Documentation for each parameters available on the
-github page ;)
-
-]]
-
-local function _read(x,y)
-    term.setCursorPos(x,y)
-    return read()
-end
-
 local _ts = tostring
 local _tn = tonumber
 local function _tb(_t) return _t == "true" end
@@ -43,29 +21,6 @@ local function _load(path)
     output = textutils.unserialise(f.readAll())
     f.close()
     return output
-end
-
-local function _setup()
-    term.clear()
-    term.setCursorPos(1,1)
-    print(str2)
-    local i = {}
-    i.chest_side = _ts(_read(17,2))
-    i.chest_type = _ts(_read(17,3))
-    i.public_settings_access = _read(29,4)
-    i.checks_entry = _read(22,5)
-    i.use_soundAPI = _read(19,6)
-    i.use_monitor = _read(18,7)
-    i.monitor_scale = _read(20,8)
-    i.group1_color = _ts(_read(19,9))
-    i.group2_color = _ts(_read(19,10))
-    i.checks_entry_chest_name = "chest"
-    i.selected = 0
-    i.last_dest = ""
-    i.launch_event = [[/door open]]
-    i.leave_event = [[/door close]]
-    update("/portal/config.txt",i)
-    term.clear()
 end
 
 if not fs.exists("/portal/config.txt") then
@@ -105,34 +60,6 @@ local side,rside = index.chest_side,f._rvdir(index.chest_side)
 local w,h = m.getSize()
  
 function vn(arg) return arg ~= nil end
- 
-function setWindows()
-    bg = f.addWin(m,1,1,w,h) bg.reset = {bg_color="black"}
-    list = f.addWin(m,1,2,w*3/5-1,chestSize) list.reset = {bg_color="black"}
-    up_bar = f.addWin(m,1,1,w,1) up_bar.reset = {bg_color="lightGray",printText = function()
-        f.centerText(up_bar,1,"selectionner une destination","black","lightGray") end}
-    down_bar = f.addWin(m,1,h,w,h) down_bar.reset = {bg_color="lightGray",printText = function()
-        f.centerTextRight(down_bar,1,"v"..version,"black","lightGray") end}
-    scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="lightGray",printText = function()
-        f.cprint(scroll_bar,1,1,"^","black","gray")
-        f.cprint(scroll_bar,1,h-2,"v","black","gray") end}
-    bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
-        f.cprint(bg2,2,1,"Status: ","white","gray")
-        f.cprint(bg2,2,7,"Rechercher:","white","gray")
-        f.drawLine(bg2,2,9,bg2.size[1]-2.4,"lightGray")
-        f.cprint(bg2,2,11,"Taper dans le","white","gray")
-        f.cprint(bg2,2,12," computer une ","white","gray")
-        f.cprint(bg2,2,13," recherche.","white","gray")
-        f.cprint(bg2,2,14,"Double-cliquer sur","white","gray")
-        f.cprint(bg2,2,15," un nom pour se","white","gray")
-        f.cprint(bg2,2,16," teleporter.","white","gray") end}
-    b1 = f.addWin(bg2,2,3,bg2.size[1]-2,3) b1.reset = {bg_color="red",printText = function()
-        f.centerText(b1,2,"fermer","black","red") end}
-    b2 = f.addWin(bg2,2,18,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
-        f.centerText(b2,2,"quitter le module","black","red") end}
-    b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
-        f.cprint(b3,1,1,"x","lightGray","white") end}
-end
  
 function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
