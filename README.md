@@ -40,7 +40,7 @@ Et voici à quoi peut ressembler l'interface une fois installée :
 
 ![Me prévenir si l'image ne s'affiche pas](https://i.ibb.co/RHTm46m/2020-06-05-21-24-11.png)
 
-**NOTE: Nous pouvons voir à gauche un dépositoir pour les charms qui peut être automatisé par le même programme qui affiche l'interface**
+**NOTE: Nous pouvons voir, à gauche, un dépositoire pour les charms qui peut être automatisé par le même programme qui affiche l'interface**
 
 ### Utilisation de Portal ###
 
