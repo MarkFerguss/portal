@@ -11,11 +11,15 @@ local str2 = [[
  * chest_side =                     (east,west...)
  * chest_type =                (draconic_chest...)
  * public_settings_access =           (true/false)
+ * checks_entry =                     (true/false)
  * use_soundAPI =                     (true/false)
  * use_monitor =                      (true/false)
  * monitor_scale =                 (0.5/1/2/3/4/5)
  * group1_color =               (red,lime,gold...)
  * group2_color =               (red,lime,gold...)
+
+Documentation for each parameters available on the
+github page ;)
 
 ]]
 
@@ -49,11 +53,12 @@ local function _setup()
     i.chest_side = _ts(_read(17,2))
     i.chest_type = _ts(_read(17,3))
     i.public_settings_access = _read(29,4)
-    i.use_soundAPI = _read(19,5)
-    i.use_monitor = _read(18,6)
-    i.monitor_scale = _read(20,7)
-    i.group1_color = _ts(_read(19,8))
-    i.group2_color = _ts(_read(19,9))
+    i.checks_entry = _read(19,5)
+    i.use_soundAPI = _read(19,6)
+    i.use_monitor = _read(18,7)
+    i.monitor_scale = _read(20,8)
+    i.group1_color = _ts(_read(19,9))
+    i.group2_color = _ts(_read(19,10))
     i.selected = 0
     i.last_dest = ""
     i.launch_event = [[/door open]]
