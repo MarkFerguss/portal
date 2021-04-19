@@ -23,7 +23,7 @@ local function _read(x,y)
     return read()
 end
 
-local _ts
+local _ts = tostring
 
 local function update(path,input)
     local f = fs.open(path,"w")
