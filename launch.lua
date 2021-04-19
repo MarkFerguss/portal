@@ -2,7 +2,6 @@ local arg = ...
 local version = "1.13" --(31/07/2020)
 os.loadAPI("/portal/lib/f") 
 os.loadAPI("/portal/lib/API") 
-os.loadAPI("/portal/objects/widgets")
 os.loadAPI("/portal/objects/setup")
 
 local str1 = [[
@@ -60,7 +59,11 @@ local w,h = m.getSize()
  
 function vn(arg) return arg ~= nil end
 
-widgets.setWIndows()
+local Wf = fs.open("/portal/objects/widgets","r)
+local str3 = Wf.readAll()
+Wf.close()
+str4 = load(str3)
+str4()
 
 function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
