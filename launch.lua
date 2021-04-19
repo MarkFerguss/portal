@@ -56,8 +56,8 @@ local function _setup()
     i.group2_color = _ts(_read(19,9))
     i.selected = 0
     i.last_dest = ""
-    i.launch_event = [[door open]]
-    i.leave_event = [[door close]]
+    i.launch_event = [[/door open]]
+    i.leave_event = [[/door close]]
     update("/portal/config.txt",i)
     term.clear()
 end
