@@ -19,33 +19,35 @@ local str2 = [[
 ]]
 
 local function _read(x,y)
-	term.setCursorPos(x,y)
-	return read()
+    term.setCursorPos(x,y)
+    return read()
 end
 
+local _ts
+
 local function update(path,input)
-	local f = fs.open(path,"w")
-	f.write(input)
-	f.close()
+    local f = fs.open(path,"w")
+    f.write(input)
+    f.close()
 end
 
 if not fs.exists("/portal/config.txt") then
-	print(str1)
-	e = read()
-	if e == "y" then
-		term.clear()
-		term.setCursorPos(1,1)
-		print(str2)
-		local i = {}
-		i.chest_side = _read(17,2)
-		i.chest_type = _read(17,3
-		i.public_settings_access = _read(29,4)
-		i.use_monitor = _read(18,5)
-		i.use_soundAPI = _read(19,6)
-		i.group1_color = _read(19,7)
-		i.group2_color = _read(19,8)
-		update("/portal/config.txt",i)
-	end
+    print(str1)
+    e = read()
+    if e == "y" then
+        term.clear()
+        term.setCursorPos(1,1)
+        print(str2)
+        local i = {}
+        i.chest_side = _ts(_read(17,2))
+        i.chest_type = _ts(_read(17,3))
+        i.public_settings_access = _read(29,4)
+        i.use_monitor = _read(18,5)
+        i.use_soundAPI = _read(19,6)
+	i.group1_color = _ts(_read(19,7))
+	i.group2_color = _ts(_read(19,8))
+        update("/portal/config.txt",i)
+    end
 end
 
 local version = "1.13" --(31/07/2020)
