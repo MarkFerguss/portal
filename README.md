@@ -2,7 +2,7 @@
 
 ## Avant-propos : ##
 
-
+[ ](https://ftbwiki.org/images/8/89/Item_Charm_of_Dislocation.png)
 
 ## Plan du README ##
 
