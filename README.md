@@ -64,13 +64,13 @@ Cette masse de code peut paraître compliquée à comprendre mais chaque ligne a
   group2_color = "lime",
 ```
 
-1. 'chest_side' : cette variable permet d'indiquer au programme la direction du Draconic Receptacle par rapport au coffre répertoriant toutes les charms. Pour obtenir cette information, il suffit d'appuyer, en jeu, sur la touche F3 et de noter le détail (SOUTH, WEST, EAST, ou NORTH) qui s'affiche entre paranthèses.
-2. 'chest_type' : qui peut également s'appeller 'chest_name' puisque la fonction utilisée accepte les deux (peripheral.find(...)). S'il s'agit d'un coffre Draconic, il faudra noter 'draconic_chest' et s'il s'agit d'un coffre vanilla, 'chest'. **NOTE : l'utilisation d'un réseau ME comme répertoire n'a pas encore été essayé et nécessite de toute manière des modifications dans certains blocs du code. Mais si vous êtes calés en Computercraft, vous êtes bien évidemment libres d'essayer.**
-3. 'public_settings_access' : est une option qui permet d'afficher ou non le bouton des options dans lequel on peut changer les configurations de l'interface. Si vous êtes l'administrateur d'un serveur et que vous voulez exploiter le programme de manière à ce que les joueurs n'accèdent pas aux options d'une interface publique, alors je vous recommande d'écrire 'false' à cette ligne.
-4. 'use_soundAPI' : une autre option qui elle n'a pas d'impacte sur le bon fonctionnement de l'interface. Elle sert simplement à jouer des sons avec un 'note_bloc'
-5. 'use_monitor' : pour spécifier l'usage d'un moniteur
-6. 'monitor_scale' : l'échelle de pixels du moniteur (0.5 / 1 / 2 / 3 / 4 / 5)
-7. 'moderator_chest' : 'moderator.lua' est un sous-programme qui permet de gérer les Charms entrantes dans le systèmes. Ce sous-programme peut être pratique dans un lieu où tout le monde peut partager ses coordonnées afin d'éviter de devoir approuver les Charms manuellement.
+1. `chest_side` : cette variable permet d'indiquer au programme la direction du Draconic Receptacle par rapport au coffre répertoriant toutes les charms. Pour obtenir cette information, il suffit d'appuyer, en jeu, sur la touche F3 et de noter le détail (SOUTH, WEST, EAST, ou NORTH) qui s'affiche entre paranthèses.
+2. `chest_type` : qui peut également s'appeller `chest_name` puisque la fonction utilisée accepte les deux (peripheral.find(...)). S'il s'agit d'un coffre Draconic, il faudra noter 'draconic_chest' et s'il s'agit d'un coffre vanilla, 'chest'. **NOTE : l'utilisation d'un réseau ME comme répertoire n'a pas encore été essayé et nécessite de toute manière des modifications dans certains blocs du code. Mais si vous êtes calés en Computercraft, vous êtes bien évidemment libres d'essayer.**
+3. `public_settings_access` : est une option qui permet d'afficher ou non le bouton des options dans lequel on peut changer les configurations de l'interface. Si vous êtes l'administrateur d'un serveur et que vous voulez exploiter le programme de manière à ce que les joueurs n'accèdent pas aux options d'une interface publique, alors je vous recommande d'écrire 'false' à cette ligne.
+4. `use_soundAPI` : une autre option qui elle n'a pas d'impacte sur le bon fonctionnement de l'interface. Elle sert simplement à jouer des sons avec un `note_bloc`
+5. `use_monitor` : pour spécifier l'usage d'un moniteur
+6. `monitor_scale` : l'échelle de pixels du moniteur (0.5 / 1 / 2 / 3 / 4 / 5)
+7. `moderator_chest` : 'moderator.lua' est un sous-programme qui permet de gérer les Charms entrantes dans le systèmes. Ce sous-programme peut être pratique dans un lieu où tout le monde peut partager ses coordonnées afin d'éviter de devoir approuver les Charms manuellement.
 
 ## Présentation de la face cachée de Portal : le code ##
 
