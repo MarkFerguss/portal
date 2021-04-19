@@ -25,6 +25,8 @@ local function _read(x,y)
 end
 
 local _ts = tostring
+local _tn = tonumber
+local function _tb(_t) return _t == "true" end
 
 local function update(path,input)
     local f = fs.open(path,"w")
@@ -75,9 +77,9 @@ local index = _load("/portal/config.txt")
 local p = peripheral.find(index.chest_type) 
 local q = peripheral.find("peripheral")
 
-if index.use_monitor then
+if -tb(index.use_monitor) then
     m = peripheral.find("monitor")
-    m.setTextScale(index.monitor_scale)
+    m.setTextScale(_tn(index.monitor_scale))
 end
 
 local list_items,items,stq = {},{},{}
