@@ -57,6 +57,8 @@ if not fs.exists("/portal/config.txt") then
         i.group2_color = _ts(_read(19,9))
         i.selected = 0
         i.last_dest = ""
+        i.launch_event = [[door open]]
+        i.leave_event = [[door close]]
         update("/portal/config.txt",i)
         term.clear()
     end
@@ -189,7 +191,7 @@ end
 setWindows() reset()
 pulse()
 shell.run("/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
-shell.run("/door","open")
+shell.run(index.launch_event)
   
 while true do
     reset()
@@ -227,7 +229,7 @@ while true do
                 search()
             elseif b2.isClicked(xc,yc) then
                 pulse()
-                shell.run("/door","close")
+                shell.run(index.leave_event)
                 m.clear()
                 break
             elseif b3.isClicked(xc,yc) then
