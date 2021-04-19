@@ -28,7 +28,7 @@ Pour une utilisation simple du programme, je vous invite à suivre ces instructi
 1. Construire un portail de Draconic Infused Obsidian et placer le Draconic Receptacle à un des sommets du portail
 2. Placer un coffre (la nature du coffre devra être mentionnée dans l'initialisation du programme) de manière à ce qu'une des faces soit en contact avec le Receptacle et qu'un bloc n'empêche pas l'ouverture du coffre. **NOTE: l'utilisation d'un réseau ME d'Applied Energistics n'a pas encore été experimenté, si vous vous y connaisez en code computercraft, je vous invite à tenter le coup**
 3. Connecter les périphériques à un réseau de Networking Cables à l'aide des Peripheral Proxys offert par `OpenPeripherals Addons`
-4. Placer un Computer dans lequel vous taperez cette commande : pastebin run Xa4Bucuf
+4. Placer un Computer dans lequel vous taperez cette commande : [pastebin run Xa4Bucuf](https://pastebin.com/Xa4Bucuf)
 
 Voici un schéma des différents blocs utilisés pour l'installation :
 
