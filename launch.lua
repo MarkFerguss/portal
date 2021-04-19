@@ -94,6 +94,8 @@ local q = peripheral.find("peripheral")
 if _tb(index.use_monitor) then
     m = peripheral.find("monitor")
     m.setTextScale(_tn(index.monitor_scale))
+else
+    m = term.current()
 end
 
 local list_items,items,stq = {},{},{}
