@@ -34,6 +34,12 @@ Voici un schéma des différents blocs utilisés pour l'installation :
 
 ![Me prévenir si l'image ne s'affiche pas](https://i.ibb.co/fSKPDyj/2021-04-04-17-06-03.jpg)
 
+Et voici à quoi peut ressembler l'interface une fois installée :
+
+![Me prévenir si l'image ne s'affiche pas](https://i.ibb.co/0JySV9S/2020-06-05-21-24-11.png)
+
+**NOTE: Nous pouvons voir à gauche un dépositoir pour les charms qui peut être automatisé par le même programme qui affiche l'interface
+
 ### Utilisation de Portal ###
 
 -> Interface 
