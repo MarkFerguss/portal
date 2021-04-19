@@ -244,9 +244,11 @@ while true do
                 m.clear()
                 break
             elseif b3.isClicked(xc,yc) then
-    word = ""
-   end
+                word = ""
+            end
         end
     end
+    index.selected = selected
+    update("/portal/config.txt",index)
     if e[1] == "char" then search(e[2]) end
 end
