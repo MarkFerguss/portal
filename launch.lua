@@ -1,3 +1,53 @@
+local arg = ...
+
+local str1 = [[
+
+Start setup ?
+
+]]
+
+local str2 = [[
+
+ * chest_side =                         (east,west...)
+ * chest_type =                         (draconic_chest...)
+ * public_settings_access =             (true/false)
+ * use_monitor =                        (true/false)
+ * use_soundAPI =                       (true/false)
+ * group1_color =                       (red,lime,gold...)
+ * group2_color =                       (red,lime,gold...)
+
+]]
+
+local function _read(x,y)
+	term.setCursorPos(x,y)
+	return read()
+end
+
+local function update(path,input)
+	local f = fs.open(path,"w")
+	f.write(input)
+	f.close()
+end
+
+if not fs.exists("/portal/config.txt") then
+	print(str1)
+	e = read()
+	if e == "y" then
+		term.clear()
+		term.setCursorPos(1,1)
+		print(str2)
+		local i = {}
+		i.chest_side = _read(17,2)
+		i.chest_type = _read(17,3
+		i.public_settings_access = _read(29,4)
+		i.use_monitor = _read(18,5)
+		i.use_soundAPI = _read(19,6)
+		i.group1_color = _read(19,7)
+		i.group2_color = _read(19,8)
+		update("/portal/config.txt",i)
+	end
+end
+
 local version = "1.13" --(31/07/2020)
 os.loadAPI("/portal/lib/f") -- a monitor API made by myself, it makes my life easier
 os.loadAPI("/portal/lib/API") -- search_bar
@@ -76,9 +126,9 @@ function getItems()
             if list_items[a] ~= nil and list_items[a].name == "teleporterMKI" then
                 items[b] = {}
                 items[b][1] = a
-                items[b][2] = API.normalize(list_items[a].display_name)
+                items[b][2] = list_items[a].display_name
                 if API.check(VIP,items[b][2]) then items[b][3] = "orange"
-                elseif API.check(GUIDES,items[b][2]) then items[b][3] = "lime"
+                --elseif API.check(GUIDES,items[b][2]) then items[b][3] = "lime"
                 else items[b][3] = "gray" end
                 b = b + 1
             end
