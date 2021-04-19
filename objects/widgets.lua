@@ -1,5 +1,3 @@
-os.loadAPI("/portal/lib/f")
-
 function setWindows()
     bg = f.addWin(m,1,1,w,h) bg.reset = {bg_color="black"}
     list = f.addWin(m,1,2,w*3/5-1,chestSize) list.reset = {bg_color="black"}
