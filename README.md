@@ -2,6 +2,8 @@
 
 ## Avant-propos : ##
 
+W.I.P
+
 ![charm](https://ftbwiki.org/images/8/89/Item_Charm_of_Dislocation.png)
 
 ## Plan du README ##
@@ -42,7 +44,7 @@ Et voici à quoi peut ressembler l'interface une fois installée :
 
 ### Utilisation de Portal ###
 
--> Interface 
+W.I.P
 
 ## Introduction aux différentes fonctionnalités offertes par Portal ##
 
@@ -88,6 +90,8 @@ Le module Portal consiste en un répértoire organisé labelisé '/Portal' dans 
 
 
 ## L'organisation des mises à jour ##
+
+W.I.P
 
 ### TAGS ###
 
