@@ -26,7 +26,7 @@ local function update(path,input)
     f.close()
 end
 
-local function _setup()
+function main()
     term.clear()
     term.setCursorPos(1,1)
     print(str2)
@@ -48,5 +48,3 @@ local function _setup()
     update("/portal/config.txt",i)
     term.clear()
 end
-
-_setup()
