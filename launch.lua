@@ -141,7 +141,7 @@ end
 function pulse()
     stq = q.getAllStacks()
     if stq[1] ~= nil then
-        shell.run("/lib/soundAPI","mystcraft:linking.link-disarm",volume,"1","false")
+        shell.run("/portal/lib/soundAPI","mystcraft:linking.link-disarm",volume,"1","false")
         q.pushItem(rside,1)
     end
 end
@@ -202,7 +202,7 @@ end
  
 setWindows() reset()
 pulse()
-shell.run("/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
+shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
 shell.run(index.launch_event)
   
 while true do
@@ -221,7 +221,7 @@ while true do
             pulse()
             sleep(0.5)
             p.pushItem(side,display[selected][1])
-            shell.run("/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false")
+            shell.run("/portal/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false")
             last_dest = display[selected][2]
             getItems()
         elseif e[4] > 1 and e[3] < j-1 then
