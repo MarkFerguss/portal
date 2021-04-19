@@ -27,7 +27,7 @@ local _ts = tostring
 
 local function update(path,input)
     local f = fs.open(path,"w")
-    f.write(input)
+    f.write(textutils.serialise(input))
     f.close()
 end
 
@@ -44,9 +44,10 @@ if not fs.exists("/portal/config.txt") then
         i.public_settings_access = _read(29,4)
         i.use_monitor = _read(18,5)
         i.use_soundAPI = _read(19,6)
-	i.group1_color = _ts(_read(19,7))
-	i.group2_color = _ts(_read(19,8))
+        i.group1_color = _ts(_read(19,7))
+        i.group2_color = _ts(_read(19,8))
         update("/portal/config.txt",i)
+        term.clear()
     end
 end
 
