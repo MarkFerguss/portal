@@ -88,3 +88,7 @@ Le module Portal consiste en un répértoire organisé labelisé '/Portal' dans 
 
 
 ## L'organisation des mises à jour ##
+
+### TAGS ###
+
+draconic portal, computercraft, draconic evolution, interface, charm of dislocation, automatic, design
