@@ -97,7 +97,7 @@ local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
 local chestSize,selected = p.getInventorySize(),index.selected
 local side,rside = index.chest_side,f._rvdir(index.chest_side)
-local c_grp1,c_grp2 = index.group1_color, index.group2_color
+local c_grp1,c_grp2 = _ts(index.group1_color),_ts(index.group2_color)
 local w,h = m.getSize()
  
 function vn(arg) return arg ~= nil end
@@ -126,12 +126,12 @@ function setWindows()
         f.centerText(b2,2,"quitter le module","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
-    bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg2.reset = {bg_color="gray",printText = function()
+    bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Nom: ","white","gray") end}
-    b3 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b1.reset = {bg_color=c_grp1,printText = function()
-        f.centerText(b1,2,"Ajouter au groupe","gray",c_grp1) end}
-    b4 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b2.reset = {bg_color=c_grp2,printText = function()
-        f.centerText(b2,2,"Ajouter au groupe","gray",c_grp2) end}
+    b3 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b3.reset = {bg_color=c_grp1,printText = function()
+        f.centerText(b3,2,"Ajouter au groupe","gray",c_grp1) end}
+    b4 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp2,printText = function()
+        f.centerText(b4,2,"Ajouter au groupe","gray",c_grp2) end}
     bs = f.addWin(m,w-10,1,w,1) bs.reset = {bg_color="white",printText = function()
         f.centerText(bs,1,"settings","gray","white") end}
 end
