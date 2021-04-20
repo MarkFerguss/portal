@@ -126,7 +126,7 @@ function setWindows()
         f.centerText(b2,2,"quitter le module","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
-    bs = f.addWin(m,w-10,1,w,1) bs.reset = {bg_color="white",printText = function()
+    bs = f.addWin(up_bar,w-10,1,w,1) bs.reset = {bg_color="white",printText = function()
         f.centerText(bs,1,"settings","gray","white") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Nom: ","white","gray") end}
