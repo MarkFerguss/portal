@@ -112,15 +112,15 @@ function setWindows()
     scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="white"}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
-        f.cprint(bg2,2,7,"Rechercher:","white","gray")
+        f.cprint(bg2,2,7,"Rechercher:","white","gray") end}
         f.drawLine(bg2,2,9,bg2.size[1]-2.4,"lightGray")
     b1 = f.addWin(bg2,2,3,bg2.size[1]-2,3) b1.reset = {bg_color="red",printText = function()
         f.centerText(b1,2,"fermer","gray","red") end}
-    b2 = f.addWin(bg2,2,11,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
+    b2 = f.addWin(bg2,2,15,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
         f.centerText(b2,2,"quitter le module","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
-    bs = f.addWin(bg2,2,15,bg2.size[1]-2,3) bs.reset = {bg_color="red",printText = function()
+    bs = f.addWin(bg2,2,11,bg2.size[1]-2,3) bs.reset = {bg_color="red",printText = function()
         f.centerText(bs,2,"options","gray","red") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Nom: ","white","gray") end}
@@ -208,7 +208,7 @@ setWindows() reset()
 pulse()
 shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
 shell.run(index.launch_event)
-if _tb(index.moderator.chest) then shell.run("bg","/portal/moderator") end
+if _tb(index.moderator_chest) then shell.run("bg","/portal/moderator") end
   
 while true do
     reset()
