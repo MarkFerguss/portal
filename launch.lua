@@ -132,6 +132,8 @@ function setWindows()
         f.centerText(b1,2,"Ajouter au groupe","gray",c_grp1) end}
     b4 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b2.reset = {bg_color=c_grp2,printText = function()
         f.centerText(b2,2,"Ajouter au groupe","gray",c_grp2) end}
+    bs = f.addWin(m,w-10,1,w,1) bs.reset = {bg_color="white",printText = function()
+        f.centerText(bs,1,"settings","gray","white") end}
 end
  
 function reset()
