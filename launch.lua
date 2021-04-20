@@ -97,6 +97,7 @@ local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
 local chestSize,selected = p.getInventorySize(),index.selected
 local side,rside = index.chest_side,f._rvdir(index.chest_side)
+local c_grp1,c_grp2 = index.group1_color, index.group2_color
 local w,h = m.getSize()
  
 function vn(arg) return arg ~= nil end
@@ -109,8 +110,6 @@ function setWindows()
     down_bar = f.addWin(m,1,h,w,h) down_bar.reset = {bg_color="lightGray",printText = function()
         f.centerTextRight(down_bar,1,"v"..version,"black","lightGray") end}
     scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="lightGray",printText = function()
-        f.cprint(scroll_bar,1,1,"^","black","gray")
-        f.cprint(scroll_bar,1,h-2,"v","black","gray") end}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
         f.cprint(bg2,2,7,"Rechercher:","white","gray")
@@ -122,11 +121,17 @@ function setWindows()
         f.cprint(bg2,2,15," un nom pour se","white","gray")
         f.cprint(bg2,2,16," teleporter.","white","gray") end}
     b1 = f.addWin(bg2,2,3,bg2.size[1]-2,3) b1.reset = {bg_color="red",printText = function()
-        f.centerText(b1,2,"fermer","black","red") end}
+        f.centerText(b1,2,"fermer","gray","red") end}
     b2 = f.addWin(bg2,2,18,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
-        f.centerText(b2,2,"quitter le module","black","red") end}
+        f.centerText(b2,2,"quitter le module","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
+    bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg2.reset = {bg_color="gray",printText = function()
+        f.cprint(bg2,2,1,"Nom: ","white","gray")
+    b3 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b1.reset = {bg_color=c_grp1,printText = function()
+        f.centerText(b1,2,"Ajouter au groupe","gray",c_grp1) end}
+    b4 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b2.reset = {bg_color=c_grp2,printText = function()
+        f.centerText(b2,2,"Ajouter au groupe","gray",c_grp2) end}
 end
  
 function reset()
