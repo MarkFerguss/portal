@@ -109,25 +109,19 @@ function setWindows()
         f.centerText(up_bar,1,"selectionner une destination","black","lightGray") end}
     down_bar = f.addWin(m,1,h,w,h) down_bar.reset = {bg_color="lightGray",printText = function()
         f.centerTextRight(down_bar,1,"v"..version,"black","lightGray") end}
-    scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="lightGray"}
+    scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="white"}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
         f.cprint(bg2,2,7,"Rechercher:","white","gray")
         f.drawLine(bg2,2,9,bg2.size[1]-2.4,"lightGray")
-        f.cprint(bg2,2,11,"Taper dans le","white","gray")
-        f.cprint(bg2,2,12," computer une ","white","gray")
-        f.cprint(bg2,2,13," recherche.","white","gray")
-        f.cprint(bg2,2,14,"Double-cliquer sur","white","gray")
-        f.cprint(bg2,2,15," un nom pour se","white","gray")
-        f.cprint(bg2,2,16," teleporter.","white","gray") end}
     b1 = f.addWin(bg2,2,3,bg2.size[1]-2,3) b1.reset = {bg_color="red",printText = function()
         f.centerText(b1,2,"fermer","gray","red") end}
-    b2 = f.addWin(bg2,2,18,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
+    b2 = f.addWin(bg2,2,11,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
         f.centerText(b2,2,"quitter le module","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
-    bs = f.addWin(up_bar,w-10,1,w,1) bs.reset = {bg_color="white",printText = function()
-        f.centerText(bs,1,"settings","gray","white") end}
+    bs = f.addWin(bg2,2,15,bg2.size[1]-2,3) bs.reset = {bg_color="red",printText = function()
+        f.centerText(bs,2,"options","gray","red") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Nom: ","white","gray") end}
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp1,printText = function()
@@ -139,7 +133,7 @@ end
 function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
     up_bar.apply("reset") down_bar.apply("reset") scroll_bar.apply("reset")
-    b1.apply("reset") b2.apply("reset") b3.apply("reset")
+    bs.apply("reset") b1.apply("reset") b2.apply("reset") b3.apply("reset")
     if vn(q) then
         local stq = q.getAllStacks()
         if stq[1] ~= nil then f.cprint(bg2,10,1,"ouvert","green","gray")
