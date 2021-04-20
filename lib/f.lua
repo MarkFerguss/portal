@@ -105,11 +105,11 @@ function check(list,name)
     end
     return check, array
 end
-function addWin(m,x1,y1,x2,y2)
+function addWin(m,x1,y1,x2,y2,_v)
     if m == nil then
         error("No object found")
     end
-    local b = window.create(m,x1,y1,x2,y2)
+    local b = window.create(m,x1,y1,x2,y2,_v)
     b.isWindow = true
     b.parent = m
     b.name = name
