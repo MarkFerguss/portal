@@ -109,7 +109,7 @@ function setWindows()
         f.centerText(up_bar,1,"selectionner une destination","black","lightGray") end}
     down_bar = f.addWin(m,1,h,w,h) down_bar.reset = {bg_color="lightGray",printText = function()
         f.centerTextRight(down_bar,1,"v"..version,"black","lightGray") end}
-    scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="lightGray",printText = function()
+    scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="lightGray"}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
         f.cprint(bg2,2,7,"Rechercher:","white","gray")
@@ -127,7 +127,7 @@ function setWindows()
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg2.reset = {bg_color="gray",printText = function()
-        f.cprint(bg2,2,1,"Nom: ","white","gray")
+        f.cprint(bg2,2,1,"Nom: ","white","gray") end}
     b3 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b1.reset = {bg_color=c_grp1,printText = function()
         f.centerText(b1,2,"Ajouter au groupe","gray",c_grp1) end}
     b4 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b2.reset = {bg_color=c_grp2,printText = function()
