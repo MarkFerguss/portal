@@ -112,8 +112,8 @@ function setWindows()
     scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="white"}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
-        f.cprint(bg2,2,7,"Rechercher:","white","gray") end}
-        f.drawLine(bg2,2,9,bg2.size[1]-2.4,"lightGray")
+        f.cprint(bg2,2,7,"Rechercher:","white","gray")
+        f.drawLine(bg2,2,9,bg2.size[1]-2.4,"lightGray") end}
     b1 = f.addWin(bg2,2,3,bg2.size[1]-2,3) b1.reset = {bg_color="red",printText = function()
         f.centerText(b1,2,"fermer","gray","red") end}
     b2 = f.addWin(bg2,2,15,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
