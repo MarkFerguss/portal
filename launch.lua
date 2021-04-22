@@ -195,5 +195,5 @@ while true do
     local sY = math.abs(y-2)
     local nY = ((sY / ( #items - h )) * (h-b_l-2)) +2
     scroll_bar.reposition(j,nY,1,b_l)
-    f.cprint(down_bar,20,1,index.last_dest,"blue","lightGray")
+    f.cprint(down_bar,19,1,_ts(index.last_dest),"blue","lightGray")
 end
