@@ -96,9 +96,9 @@ function format_int(number)
   return minus .. int:reverse():gsub("^,", "") .. fraction
 end
 function tbl_remove(_tbl,_str)
-  for i,v in pairs(temp) do
+  for i,v in pairs(_tbl) do
     if v == _str then
-      local _temp = table.remove(_tbl,_str)
+      local _temp = table.remove(_tbl,i)
     end
   end
   return _temp
