@@ -167,7 +167,7 @@ while true do
     getItems()
     list_display()
     down_bar.redraw()
-    up_bar.redraw() bs1.redraw()
+    up_bar.redraw() bs.redraw()
     x,y = list.getPosition()
     j,k = scroll_bar.getPosition()
     local e = {os.pullEvent()}
@@ -210,13 +210,13 @@ while true do
                 bg3.setVisible(false) bg3.isVisible = false
                 b4.setVisible(false) b5.setVisible(false)
             end
-        elseif bg2.isClicked(e[3],e[4]) then
-            xc = e[3]-bg2.pos[1]+1 yc = e[4]-bg2.pos[2]+1
+        elseif bg3.isClicked(e[3],e[4]) and bg3.isVisible then
+            xc = e[3]-bg3.pos[1]+1 yc = e[4]-bg3.pos[2]+1
             if b4.isClicked(xc,yc) then
                 if not f.check(index.grp1,display[selected][2]) then
                     table.insert(index.grp1,display[selected][2])
                 end
-            elseif b4.isClicked(xc,yc) then
+            elseif b5.isClicked(xc,yc) then
                 if not f.check(index.grp2,display[selected][2]) then
                     table.insert(index.grp2,display[selected][2])
                 end
