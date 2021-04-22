@@ -53,6 +53,8 @@ function setWindows()
         f.cprint(b3,1,1,"x","lightGray","white") end}
     bs = f.addWin(bg2,2,11,bg2.size[1]-2,3) bs.reset = {bg_color="red",printText = function()
         f.centerText(bs,2,"options","gray","red") end}
+    bs1 = f.addWin(up_bar,w-10,1,w,1,_tb(index.settings_public_access)) bs1.reset = {bg_color="lightGray",printText = function()
+        f.centerText(bs,2,"settings","black","lightGray") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp1,printText = function()
@@ -64,7 +66,7 @@ end
 function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
     up_bar.apply("reset") down_bar.apply("reset") scroll_bar.apply("reset")
-    bs.apply("reset") b1.apply("reset") b2.apply("reset") b3.apply("reset")
+    bs.apply("reset") bs1.apply("reset") b1.apply("reset") b2.apply("reset") b3.apply("reset")
     if vn(q) then
         local stq = q.getAllStacks()
         if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
@@ -145,7 +147,7 @@ while true do
     getItems()
     list_display()
     down_bar.redraw()
-    up_bar.redraw()
+    up_bar.redraw() bs1.redraw()
     x,y = list.getPosition()
     j,k = scroll_bar.getPosition()
     local e = {os.pullEvent()}
