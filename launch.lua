@@ -71,6 +71,7 @@ function reset()
         else f.cprint(bg2,10,1,"closed","yellow","gray") end
     end
     if word ~= nil then f.cprint(bg2,2,9,word,"gray","lightGray") end
+    f.cprint(down_bar,19,1,_ts(index.last_dest),"blue","lightGray")
 end
  
 function pulse()
@@ -178,7 +179,8 @@ while true do
             elseif b2.isClicked(xc,yc) then
                 pulse()
                 shell.run(index.leave_event)
-                m.clear()
+                shell.run("clear")
+                shell.run("shell")
                 break
             elseif b3.isClicked(xc,yc) then
                 word = ""
@@ -195,5 +197,4 @@ while true do
     local sY = math.abs(y-2)
     local nY = ((sY / ( #items - h )) * (h-b_l-2)) +2
     scroll_bar.reposition(j,nY,1,b_l)
-    f.cprint(down_bar,19,1,_ts(index.last_dest),"blue","lightGray")
 end
