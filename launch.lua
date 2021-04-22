@@ -182,20 +182,20 @@ while true do
             scroll("down")
         elseif bg2.isClicked(e[3],e[4]) then
             xc = e[3]-bg2.pos[1]+1 yc = e[4]-bg2.pos[2]+1
-            if b1.isClicked(xc,yc) then
+            if b1.isClicked(xc,yc) and not bg3.isVisible then
                 up_bar.clear()
                 f.centerText(up_bar,1,"closing...","black")
                 pulse()
                 sleep(0.4)
-            elseif f.itrv(xc,2,bg2.size[1]-3) and f.itrv(yc,6,9) then
+            elseif f.itrv(xc,2,bg2.size[1]-3) and f.itrv(yc,6,9) and not bg3.isVisible then
                 search()
-            elseif b2.isClicked(xc,yc) then
+            elseif b2.isClicked(xc,yc) and not bg3.isVisible then
                 pulse()
                 shell.run(index.leave_event)
                 shell.run("clear")
                 m.clear()
                 break
-            elseif b3.isClicked(xc,yc) then
+            elseif b3.isClicked(xc,yc) and not bg3.isVisible then
                 word = ""
             end
         elseif bs.isClicked(e[3],e[4]) then
