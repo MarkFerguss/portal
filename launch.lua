@@ -117,7 +117,7 @@ function scroll(direction)
   local x,y = list.getPosition()
   if direction == "up" and y <=1 then
     list.reposition(1,y+2)
-  elseif direction == "down" and y+#items > h-1 then
+  elseif direction == "down" and y+#items > h then
     list.reposition(1,y-2)
   end
 end
