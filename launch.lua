@@ -65,9 +65,11 @@ end
 function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
     up_bar.apply("reset") down_bar.apply("reset") scroll_bar.apply("reset")
-    bs.apply("reset") bs1.apply("reset") b1.apply("reset") b2.apply("reset") b3.apply("reset")
+    b1.apply("reset") b2.apply("reset") b3.apply("reset")
     if bg3.isVisible then
-        bg3.redraw() bg3.apply("reset") 
+        bg3.redraw() bg3.apply("reset") bs.apply("active")
+    else
+        bs.apply("reset")
     end
     if vn(q) then
         local stq = q.getAllStacks()
@@ -194,7 +196,14 @@ while true do
             elseif b3.isClicked(xc,yc) then
                 word = ""
             end
-        end
+        elseif bs.isClicked(e[3],e[4]) then
+            if not bg3.isVisible then
+                bs.apply("active")
+                bg3.setVisible(true)
+            else
+                bs.apply("reset")
+                bg3.setVisible(false)
+            end
     end
     index.selected = selected
     f.update("/portal/config.txt",index)
