@@ -190,8 +190,7 @@ while true do
     if e[1] == "mouse_scroll" and e[2] == 1 then scroll("down") end
     if e[1] == "mouse_scroll" and e[2] == -1 then scroll("up") end
     local b_l = ((h-2)/#items)*h
-    local Dy = h-#items
-    local Db = h-b_l
-    local nY = Db * (list.pos[2] / Dy)
-    scroll_bar.reposition(j,nY,1,b_l)
+    local sY = math.abs(list.pos[2])
+    local nY = sY / (( #items - h ) * ( h - b_l ))
+    scroll_bar.reposition(j,nY+1,1,b_l)
 end
