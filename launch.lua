@@ -24,7 +24,7 @@ end
 local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
 local chestSize,selected = p.getInventorySize(),index.selected
-local side,rside = index.chest_side,f._rvdir(index.chest_side)
+local side,rside = index.chest_side,f.rvdir(index.chest_side)
 local c_grp1,c_grp2 = _ts(index.group1_color),_ts(index.group2_color)
 local w,h = m.getSize()
  
