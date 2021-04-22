@@ -210,11 +210,11 @@ while true do
                 bg3.setVisible(false) bg3.isVisible = false
                 b4.setVisible(false) b5.setVisible(false)
             end
-        elseif b4.isClicked(e[3],e[4])
+        elseif b4.isClicked(e[3],e[4]) then
             if not f.check(index.grp1,display[selected][2]) then
                 table.insert(index.grp1,display[selected][2])
             end
-        elseif b4.isClicked(e[3],e[4])
+        elseif b4.isClicked(e[3],e[4]) then
             if not f.check(index.grp2,display[selected][2]) then
                 table.insert(index.grp2,display[selected][2])
             end
