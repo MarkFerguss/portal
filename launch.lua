@@ -187,6 +187,6 @@ while true do
     index.selected = selected
     f.update("/portal/config.txt",index)
     if e[1] == "char" then search(e[2]) end
-    if e[1] == "mouse_scroll" and e[2] == 1) then scroll("down") end
-    if e[1] == "mouse_scroll" and e[2] == -1) then scroll("up") end
+    if e[1] == "mouse_scroll" and e[2] == 1 then scroll("down") end
+    if e[1] == "mouse_scroll" and e[2] == -1 then scroll("up") end
 end
