@@ -27,14 +27,15 @@ os.loadAPI("/portal/lib/API")
 
 local index = _load("/portal/config.txt")
 
-local p = peripheral.find(index.chest_type) 
-local q = peripheral.find("peripheral")
-
-if _tb(index.use_monitor) then
-    m = peripheral.find("monitor")
-    m.setTextScale(_tn(index.monitor_scale))
-else
-    m = term.current()
+function _getp()
+    local p = peripheral.find(index.chest_type) 
+    local q = peripheral.find("peripheral")
+    if (_tb(index.use_monitor) and peripheral.find("monitor") ~= nil) then
+        m = peripheral.find("monitor")
+        m.setTextScale(_tn(index.monitor_scale))
+    else
+        m = term.current()
+    end
 end
 
 local list_items,items,stq = {},{},{}
@@ -89,7 +90,7 @@ end
 function pulse()
     stq = q.getAllStacks()
     if stq[1] ~= nil then
-        shell.run("/portal/lib/soundAPI","mystcraft:linking.link-disarm",volume,"1","false")
+        if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-disarm",volume,"1","false") end
         q.pushItem(rside,1)
     end
 end
@@ -150,7 +151,7 @@ end
  
 setWindows() reset()
 pulse()
-shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false")
+if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false") end
 shell.run(index.launch_event)
 if _tb(index.moderator_chest) then shell.run("bg","/portal/moderator") end
   
@@ -163,14 +164,16 @@ while true do
     x,y = list.getPosition()
     j,k = scroll_bar.getPosition()
     local e = {os.pullEvent()}
-    if e[1] == "monitor_touch" then
+    if e[1] == "peripheral_detach" or e[1] == "peripheral" then _getp() setWindows() end
+    if e[1] == "monitor_resize" then setWindows() end
+    if e[1] == "monitor_touch" or e[1] == "mouse_click" then
         if e[4]-y+1 == selected and display[selected] ~= nil and e[3] < j-1 then
             up_bar.clear()
             f.centerText(up_bar,1,"ouverture...","black")
             pulse()
             sleep(0.5)
             p.pushItem(side,display[selected][1])
-            shell.run("/portal/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false")
+            if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false") end
             last_dest = display[selected][2]
             getItems()
         elseif e[4] > 1 and e[3] < j-1 then
