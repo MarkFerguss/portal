@@ -11,8 +11,8 @@ local str2 = [[
  * use_soundAPI =                     (true/false)
  * use_monitor =                      (true/false)
  * monitor_scale =                 (0.5/1/2/3/4/5)
- * group1_color =               (red,lime,gold...)
- * group2_color =               (red,lime,gold...)
+ * group1_color =               (red,lime,blue...)
+ * group2_color =               (red,lime,blue...)
 
 Documentation for each parameters available on the
 github page ;)
