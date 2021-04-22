@@ -52,8 +52,8 @@ local function _setup()
     i.use_soundAPI = _read(19,6)
     i.use_monitor = _read(18,7)
     i.monitor_scale = _read(20,8)
-    i.group1_color = _ts(_read(19,9))
-    i.group2_color = _ts(_read(19,10))
+    i.grp1_color = _ts(_read(19,9))
+    i.grp2_color = _ts(_read(19,10))
     i.checks_entry_chest_name = "chest"
     i.selected = 0
     i.last_dest = ""
