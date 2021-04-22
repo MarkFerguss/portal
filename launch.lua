@@ -66,8 +66,8 @@ function reset()
     bs.apply("reset") b1.apply("reset") b2.apply("reset") b3.apply("reset")
     if vn(q) then
         local stq = q.getAllStacks()
-        if stq[1] ~= nil then f.cprint(bg2,10,1,"ouvert","green","gray")
-        else f.cprint(bg2,10,1,"en veille","yellow","gray") end
+        if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
+        else f.cprint(bg2,10,1,"closed","yellow","gray") end
     end
     if word ~= nil then f.cprint(bg2,2,9,word,"gray","lightGray") end
 end
