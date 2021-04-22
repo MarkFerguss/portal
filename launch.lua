@@ -11,22 +11,23 @@ if not fs.exists("/portal/config.txt") then shell.run("/portal/setup") end
 local index = f.load("/portal/config.txt")
 
 function _getp()
-    local p = peripheral.find(index.chest_type) 
-    local q = peripheral.find("peripheral")
+    p = peripheral.find(index.chest_type) 
+    q = peripheral.find("peripheral")
     if (_tb(index.use_monitor) and peripheral.find("monitor") ~= nil) then
         m = peripheral.find("monitor")
         m.setTextScale(_tn(index.monitor_scale))
     else
         m = term.current()
     end
+    chestSize = p.getInventorySize()
+    w,h = m.getSize()
 end
 
 local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
-local chestSize,selected = p.getInventorySize(),index.selected
+local selected = index.selected
 local side,rside = index.chest_side,f.rvdir(index.chest_side)
 local c_grp1,c_grp2 = _ts(index.group1_color),_ts(index.group2_color)
-local w,h = m.getSize()
  
 -- TOOLS
 
