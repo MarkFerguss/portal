@@ -152,7 +152,7 @@ while true do
     if e[1] == "monitor_touch" or e[1] == "mouse_click" then
         if e[4]-y+1 == selected and display[selected] ~= nil and e[3] < j-1 then
             up_bar.clear()
-            f.centerText(up_bar,1,"ouverture...","black")
+            f.centerText(up_bar,1,"opening...","black")
             pulse()
             sleep(0.5)
             p.pushItem(side,display[selected][1])
@@ -169,7 +169,7 @@ while true do
             xc = e[3]-bg2.pos[1]+1 yc = e[4]-bg2.pos[2]+1
             if b1.isClicked(xc,yc) then
                 up_bar.clear()
-                f.centerText(up_bar,1,"fermeture...","black")
+                f.centerText(up_bar,1,"closing...","black")
                 pulse()
                 sleep(0.4)
             elseif f.itrv(xc,2,bg2.size[1]-3) and f.itrv(yc,6,9) then
