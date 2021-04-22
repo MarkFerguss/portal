@@ -118,8 +118,8 @@ function getItems()
                 items[b] = {}
                 items[b][1] = a
                 items[b][2] = API.normalize(list_items[a].display_name)
-                if f.check(index.grp1,items[b][2]) then items[b][3] = index.group1_color
-                elseif f.check(index.grp2,items[b][2]) then items[b][3] = index.group2_color
+                if f.check(index.grp1,items[b][2]) then items[b][3] = index.grp1_color
+                elseif f.check(index.grp2,items[b][2]) then items[b][3] = index.grp2_color
                 else items[b][3] = "gray" end
                 b = b + 1
             end
@@ -230,7 +230,7 @@ while true do
     end
     index.selected = selected
     f.update("/portal/config.txt",index)
-    if e[1] == "char" then search(e[2]) end
+    if e[1] == "char" and not bg3.isVisible then search(e[2]) end
     if e[1] == "mouse_scroll" and e[2] == 1 then scroll("down") end
     if e[1] == "mouse_scroll" and e[2] == -1 then scroll("up") end
     x,y = list.getPosition()
