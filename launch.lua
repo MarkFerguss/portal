@@ -199,6 +199,14 @@ while true do
                 break
             elseif b3.isClicked(xc,yc) and not bg3.isVisible then
                 word = ""
+            elseif b4.isClicked(xc,yc) and bg3.isVisible then
+                if not f.check(index.grp1,display[selected][2]) then
+                    table.insert(index.grp1,display[selected][2])
+                end
+            elseif b5.isClicked(xc,yc) and bg3.isVisible then
+                if not f.check(index.grp2,display[selected][2]) then
+                    table.insert(index.grp2,display[selected][2])
+                end
             end
         elseif bs.isClicked(e[3],e[4]) then
             if not bg3.isVisible then
@@ -210,18 +218,7 @@ while true do
                 bg3.setVisible(false) bg3.isVisible = false
                 b4.setVisible(false) b5.setVisible(false)
             end
-        elseif bg3.isClicked(e[3],e[4]) and bg3.isVisible then
-            xc = e[3]-bg3.pos[1]+1 yc = e[4]-bg3.pos[2]+1
-            if b4.isClicked(xc,yc) then
-                if not f.check(index.grp1,display[selected][2]) then
-                    table.insert(index.grp1,display[selected][2])
-                end
-            elseif b5.isClicked(xc,yc) then
-                if not f.check(index.grp2,display[selected][2]) then
-                    table.insert(index.grp2,display[selected][2])
-                end
-            end
-        end
+       end
     end
     index.selected = selected
     f.update("/portal/config.txt",index)
