@@ -27,7 +27,6 @@ local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
 local selected = index.selected
 local side,rside = index.chest_side,f.rvdir(index.chest_side)
-local c1,c2 = colors[_ts(index.group1_color)],colors[_ts(index.group2_color)]
  
 -- TOOLS
 
@@ -91,8 +90,8 @@ function getItems()
                 items[b] = {}
                 items[b][1] = a
                 items[b][2] = API.normalize(list_items[a].display_name)
-                if API.check(index.grp1,items[b][2]) then items[b][3] = c1
-                elseif API.check(index.grp2,items[b][2]) then items[b][3] = c2
+                if f.check(index.grp1,items[b][2]) then items[b][3] = _ts(index.group1_color)
+                elseif f.check(index.grp2,items[b][2]) then items[b][3] = _ts(index.group2_color)
                 else items[b][3] = "gray" end
                 b = b + 1
             end
@@ -149,7 +148,7 @@ while true do
     j,k = scroll_bar.getPosition()
     local e = {os.pullEvent()}
     if e[1] == "peripheral_detach" or e[1] == "peripheral" then _getp() setWindows() end
-    if e[1] == "monitor_resize" then setWindows() end
+    if e[1] == "monitor_resize" then _getp() setWindows() end
     if e[1] == "monitor_touch" or e[1] == "mouse_click" then
         if e[4]-y+1 == selected and display[selected] ~= nil and e[3] < j-1 then
             up_bar.clear()
