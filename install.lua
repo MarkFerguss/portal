@@ -19,9 +19,9 @@ local str2 = [[
 local function download(path,rep)
 	if fs.exists(path) then fs.remove(path) end
 	local content = http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/"..rep)
-	f = fs.open(path,"w")
-	f.write(content.readAll())
-	f.close()
+	local h = fs.open(path,"w")
+	h.write(content.readAll())
+	h.close()
 end
 
 if not fs.exists("/portal/lib/f") then
