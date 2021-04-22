@@ -180,7 +180,7 @@ while true do
                 pulse()
                 shell.run(index.leave_event)
                 shell.run("clear")
-                shell.run("shell")
+                m.clear()
                 break
             elseif b3.isClicked(xc,yc) then
                 word = ""
