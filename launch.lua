@@ -52,9 +52,9 @@ function setWindows()
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
     bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.public_settings_access)) bs.reset = {bg_color="white",printText = function()
-        f.centerText(bs,2,"settings","black","white") end}
+        f.centerText(bs,1,"settings","black","white") end}
         bs.active =  {bg_color="black",printText = function()
-        f.centerText(bs,2,"settings","yellow","black") end}
+        f.centerText(bs,1,"settings","yellow","black") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
         bg3.isVisible = false
@@ -71,7 +71,7 @@ function reset()
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
     else
-        bs.apply("reset")
+        bs.apply("reset") bs.redraw()
     end
     if vn(q) then
         local stq = q.getAllStacks()
@@ -173,7 +173,7 @@ while true do
     if e[1] == "monitor_resize" then _getp() setWindows() end
     if e[1] == "monitor_touch" or e[1] == "mouse_click" then
         if e[4]-y+1 == selected and display[selected] ~= nil and e[3] < j-1 then
-            if bg3.isVisible then push() end
+            if not bg3.isVisible then push() end
         elseif e[4] > 1 and e[3] < j-1 then
             selected = e[4]-y+1
         elseif (e[3] == j and e[4] == 2) then
