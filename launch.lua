@@ -161,9 +161,9 @@ while true do
             getItems()
         elseif e[4] > 1 and e[3] < j-1 then
             selected = e[4]-y+1
-        elseif e[4] == 2 and e[3] == j then
+        elseif (e[4] == 2 and e[3] == j) or (e[1] == "mouse_scroll" and e[2] == "1") then
             scroll("up")
-        elseif e[4] == h-1 and e[3] == j then
+        elseif (e[4] == h-1 and e[3] == j) or (e[1] == "mouse_scroll" and e[2] == "-1") then
             scroll("down")
         elseif bg2.isClicked(e[3],e[4]) then
             xc = e[3]-bg2.pos[1]+1 yc = e[4]-bg2.pos[2]+1
