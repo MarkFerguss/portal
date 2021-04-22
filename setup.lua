@@ -13,6 +13,7 @@ local str2 = [[
  * monitor_scale =                 (0.5/1/2/3/4/5)
  * group1_color =               (red,lime,gold...)
  * group2_color =               (red,lime,gold...)
+
 Documentation for each parameters available on the
 github page ;)
 ]]
