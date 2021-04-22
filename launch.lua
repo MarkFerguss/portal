@@ -53,15 +53,19 @@ function setWindows()
         f.cprint(b3,1,1,"x","lightGray","white") end}
     bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.public_settings_access)) bs.reset = {bg_color="white",printText = function()
         f.cprint(bs,2,1,"settings","black","white") end}
-        bs.active =  {bg_color="black",printText = function()
-        f.cprint(bs,2,1,"settings","yellow","black") end}
+        bs.active =  {bg_color="gray",printText = function()
+        f.cprint(bs,2,1,"settings","yellow","gray") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg3,2,1,"Name:   ","white","gray") end}
         bg3.isVisible = false
-    b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=index.group1_color,printText = function()
-        f.centerText(b4,2,"Add to group","gray",index.group1_color) end}
-    b5 = f.addWin(bg3,2,7,bg2.size[1]-2,3,false) b5.reset = {bg_color=index.group2_color,printText = function()
-        f.centerText(b5,2,"Add to group","gray",index.group2_color) end}
+    b4 = f.addWin(bg3,2,3,bg2.size[1]-2,1,false) b4.reset = {bg_color="white",printText = function()
+        f.centerText(b4,1,"add to group","gray","white") end
+    b4r = f.addWin(bg3,2,4,bg2.size[1]-2,1,false) b4.reset = {bg_color="lightGray",printText = function()
+        f.centerText(b4,1,"remove from group","gray","lightGray") end
+    b5 = f.addWin(bg3,2,6,bg2.size[1]-2,1,false) b5.reset = {bg_color="white",printText = function()
+        f.centerText(b5,1,"Add to group","gray","white") end}
+    b5r = f.addWin(bg3,2,7,bg2.size[1]-2,1,false) b4.reset = {bg_color="lightGray",printText = function()
+        f.centerText(b4,1,"remove from group","gray","lightGray") end
 end
  
 function reset()
@@ -71,7 +75,7 @@ function reset()
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
         b4.apply("reset") b5.apply("reset")
-        f.cprint(bg3,8,1,display[selected][2],"yellow","gray")
+        f.cprint(bg3,8,1,display[selected][2],display[selected][3],"gray")
     else
         bs.apply("reset") bs.redraw()
         if vn(q) then
