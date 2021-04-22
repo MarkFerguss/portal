@@ -71,7 +71,7 @@ function reset()
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
         b4.apply("reset") b5.apply("reset")
-        f.cprint(bg3,8,1,display[selected][2],"yellow")
+        f.cprint(bg3,8,1,display[selected][2],"yellow","gray")
     else
         bs.apply("reset") bs.redraw()
         if vn(q) then
