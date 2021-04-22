@@ -56,7 +56,7 @@ function setWindows()
         bs.active =  {bg_color="black",printText = function()
         f.cprint(bs,2,1,"settings","yellow","black") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
-        f.cprint(bg2,2,1,"Name: ","white","gray") end}
+        f.cprint(bg2,2,1,"Name:   ","white","gray") end}
         bg3.isVisible = false
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp1,printText = function()
         f.centerText(b4,2,"Add to group","gray",_ts(index.group1_color)) end}
@@ -70,6 +70,7 @@ function reset()
     b1.apply("reset") b2.apply("reset") b3.apply("reset")
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
+        b4.apply("reset") b5.apply("reset")
     else
         bs.apply("reset") bs.redraw()
         if vn(q) then
