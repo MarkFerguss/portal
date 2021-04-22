@@ -193,3 +193,14 @@ end
         -           window.apply("reset")
         Now, the object background will be filled in black with the printed text 'This is a button'
 --]]
+function update(path,input)
+    local f = fs.open(path,"w")
+    f.write(textutils.serialise(input))
+    f.close()
+end
+function load(path)
+    local f = fs.open(path,"r")
+    local output = textutils.unserialise(f.readAll())
+    f.close()
+    return output
+end
