@@ -47,14 +47,12 @@ function setWindows()
         f.drawLine(bg2,2,9,bg2.size[1]-2.4,"lightGray") end}
     b1 = f.addWin(bg2,2,3,bg2.size[1]-2,3) b1.reset = {bg_color="red",printText = function()
         f.centerText(b1,2,"close","gray","red") end}
-    b2 = f.addWin(bg2,2,15,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
+    b2 = f.addWin(bg2,2,11,bg2.size[1]-2,3) b2.reset = {bg_color="red",printText = function()
         f.centerText(b2,2,"leave","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
-    bs = f.addWin(bg2,2,11,bg2.size[1]-2,3) bs.reset = {bg_color="red",printText = function()
-        f.centerText(bs,2,"options","gray","red") end}
-    bs1 = f.addWin(up_bar,w-10,1,w,1,_tb(index.settings_public_access)) bs1.reset = {bg_color="lightGray",printText = function()
-        f.centerText(bs,2,"settings","black","lightGray") end}
+    bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.settings_public_access)) bs.reset = {bg_color="white",printText = function()
+        f.centerText(bs,2,"settings","black","white") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp1,printText = function()
