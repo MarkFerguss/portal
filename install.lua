@@ -16,7 +16,7 @@ local str2 = [[
 local function download(path,content)
 	if fs.exists(path) then fs.remove(path) end
 	f = fs.open(path,"w")
-	f.write(content)
+	f.write(content.readAll())
 	f.close()
 end
 
