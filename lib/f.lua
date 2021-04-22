@@ -1,9 +1,5 @@
 local str = [[Mark_functions v.1.87 (22/04/2021)]]
 
-
-
-
-
 function progression_bar(m,x,y,length,curVal,bg_color,bar_color)
   drawLine(m,x,y,length,bg_color)
   percent_bar = curVal / 100 * length
