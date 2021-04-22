@@ -52,16 +52,16 @@ function setWindows()
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
     bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.public_settings_access)) bs.reset = {bg_color="white",printText = function()
-        f.centerText(bs,1,"settings","black","white") end}
+        f.cprint(bs,2,1,"settings","black","white") end}
         bs.active =  {bg_color="black",printText = function()
-        f.centerText(bs,1,"settings","yellow","black") end}
+        f.cprint(bs,2,1,"settings","yellow","black") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
         bg3.isVisible = false
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp1,printText = function()
-        f.centerText(b4,2,"Add to group","gray",c_grp1) end}
+        f.centerText(b4,2,"Add to group","gray",_ts(index.group1_color)) end}
     b5 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b5.reset = {bg_color=c_grp2,printText = function()
-        f.centerText(b5,2,"Add to groupe","gray",c_grp2) end}
+        f.centerText(b5,2,"Add to groupe","gray",_ts(index.group2_color)) end}
 end
  
 function reset()
@@ -72,13 +72,13 @@ function reset()
         bg3.redraw() bg3.apply("reset") bs.apply("active")
     else
         bs.apply("reset") bs.redraw()
+        if vn(q) then
+            local stq = q.getAllStacks()
+            if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
+            else f.cprint(bg2,10,1,"closed","yellow","gray") end
+        end
+        if word ~= nil then f.cprint(bg2,2,9,word,"gray","lightGray") end
     end
-    if vn(q) then
-        local stq = q.getAllStacks()
-        if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
-        else f.cprint(bg2,10,1,"closed","yellow","gray") end
-    end
-    if word ~= nil then f.cprint(bg2,2,9,word,"gray","lightGray") end
     f.cprint(down_bar,19,1,_ts(index.last_dest),"blue","lightGray")
 end
  
@@ -201,10 +201,12 @@ while true do
         elseif bs.isClicked(e[3],e[4]) then
             if not bg3.isVisible then
                 bs.apply("active")
-                bg3.setVisible(true)
+                bg3.setVisible(true) bg3.isVisible = true
+                b4.setVisible(true) b5.setVisible(true)
             else
                 bs.apply("reset")
-                bg3.setVisible(false)
+                bg3.setVisible(false) bg3.isVisible = false
+                b4.setVisible(false) b5.setVisible(false)
             end
         end
     end
