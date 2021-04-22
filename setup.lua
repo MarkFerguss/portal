@@ -28,15 +28,15 @@ local _tn = tonumber
 local function _tb(_t) return _t == "true" end
 
 local function update(path,input)
-    local f = fs.open(path,"w")
-    f.write(textutils.serialise(input))
-    f.close()
+    local h = fs.open(path,"w")
+    h.write(textutils.serialise(input))
+    h.close()
 end
 
 local function _load(path)
-    local f = fs.open(path,"r")
-    output = textutils.unserialise(f.readAll())
-    f.close()
+    local h = fs.open(path,"r")
+    output = textutils.unserialise(h.readAll())
+    h.close()
     return output
 end
 
