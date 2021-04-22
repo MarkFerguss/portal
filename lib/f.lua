@@ -95,6 +95,14 @@ function format_int(number)
   int = int:reverse():gsub("(%d%d%d)", "%1,")
   return minus .. int:reverse():gsub("^,", "") .. fraction
 end
+function tbl_remove(_tbl,_str)
+  for i,v in pairs(temp) do
+    if v == _str then
+      local _temp = table.remove(_tbl,_str)
+    end
+  end
+  return _temp
+end
 function itrv(x,y,z)
   if x == nil or y == nil or z == nil then
     return false
