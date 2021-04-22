@@ -196,7 +196,7 @@ while true do
                     end
                 elseif b4r.isClicked(xc,yc) and bg3.isVisible then
                     if f.check(index.grp1,display[selected][2]) then
-                        table.remove(index.grp1,display[selected][2])
+                        index.grp1 = f.tbl_remove(index.grp1,display[selected][2])
                     end
                 elseif b5.isClicked(xc,yc) and bg3.isVisible then
                     if not f.check(index.grp2,display[selected][2]) and not f.check(index.grp1,display[selected][2]) then
@@ -204,7 +204,7 @@ while true do
                     end
                 elseif b5r.isClicked(xc,yc) and bg3.isVisible then
                     if f.check(index.grp2,display[selected][2]) then
-                        table.remove(index.grp2,display[selected][2])
+                        index.grp2 = f.tbl_remove(index.grp2,display[selected][2])
                     end
                 end
             else
