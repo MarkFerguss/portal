@@ -91,8 +91,8 @@ function getItems()
                 items[b] = {}
                 items[b][1] = a
                 items[b][2] = API.normalize(list_items[a].display_name)
-                if API.check(index.grp1,items[b][2]) then items[b][3] = c_grp1
-                elseif API.check(index.grp2,items[b][2]) then items[b][3] = c_grp2
+                if API.check(index.grp1,items[b][2]) then items[b][3] = colors[c_grp1]
+                elseif API.check(index.grp2,items[b][2]) then items[b][3] = colors[c_grp2]
                 else items[b][3] = "gray" end
                 b = b + 1
             end
