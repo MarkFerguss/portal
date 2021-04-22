@@ -184,28 +184,32 @@ while true do
             scroll("down")
         elseif bg2.isClicked(e[3],e[4]) then
             xc = e[3]-bg2.pos[1]+1 yc = e[4]-bg2.pos[2]+1
-            if b1.isClicked(xc,yc) and not bg3.isVisible then
-                up_bar.clear()
-                f.centerText(up_bar,1,"closing...","black")
-                pulse()
-                sleep(0.4)
-            elseif f.itrv(xc,2,bg2.size[1]-3) and f.itrv(yc,6,9) and not bg3.isVisible then
-                search()
-            elseif b2.isClicked(xc,yc) and not bg3.isVisible then
-                pulse()
-                shell.run(index.leave_event)
-                shell.run("clear")
-                m.clear()
-                break
-            elseif b3.isClicked(xc,yc) and not bg3.isVisible then
-                word = ""
-            elseif b4.isClicked(xc,yc) and bg3.isVisible then
-                if not f.check(index.grp1,display[selected][2]) then
-                    table.insert(index.grp1,display[selected][2])
+            if bg3.isVisible then
+                if b4.isClicked(xc,yc) and bg3.isVisible then
+                    if not f.check(index.grp1,display[selected][2]) then
+                        table.insert(index.grp1,display[selected][2])
+                    end
+                    elseif b5.isClicked(xc,yc) and bg3.isVisible then
+                        if not f.check(index.grp2,display[selected][2]) then
+                        table.insert(index.grp2,display[selected][2])
+                    end
                 end
-            elseif b5.isClicked(xc,yc) and bg3.isVisible then
-                if not f.check(index.grp2,display[selected][2]) then
-                    table.insert(index.grp2,display[selected][2])
+            else
+                if b1.isClicked(xc,yc) and not bg3.isVisible then
+                    up_bar.clear()
+                    f.centerText(up_bar,1,"closing...","black")
+                    pulse()
+                    sleep(0.4)
+                elseif f.itrv(xc,2,bg2.size[1]-3) and f.itrv(yc,6,9) and not bg3.isVisible then
+                    search()
+                elseif b2.isClicked(xc,yc) and not bg3.isVisible then
+                    pulse()
+                    shell.run(index.leave_event)
+                    shell.run("clear")
+                    m.clear()
+                    break
+                elseif b3.isClicked(xc,yc) and not bg3.isVisible then
+                    word = ""
                 end
             end
         elseif bs.isClicked(e[3],e[4]) then
