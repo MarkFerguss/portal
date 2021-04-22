@@ -38,7 +38,8 @@ function setWindows()
     up_bar = f.addWin(m,1,1,w,1) up_bar.reset = {bg_color="lightGray",printText = function()
         f.centerText(up_bar,1,"Select a destination","black","lightGray") end}
     down_bar = f.addWin(m,1,h,w,h) down_bar.reset = {bg_color="lightGray",printText = function()
-        f.centerTextRight(down_bar,1,"v"..version,"black","lightGray") end}
+        f.centerTextRight(down_bar,1,"v"..version,"black","lightGray")
+        f.cprint(down_bar,2,1,"Last destination: ","black","lightGray") end}
     scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="white"}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
@@ -157,7 +158,7 @@ while true do
             sleep(0.5)
             p.pushItem(side,display[selected][1])
             if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false") end
-            last_dest = display[selected][2]
+            index.last_dest = display[selected][2]
             getItems()
         elseif e[4] > 1 and e[3] < j-1 then
             selected = e[4]-y+1
@@ -194,4 +195,5 @@ while true do
     local sY = math.abs(y-2)
     local nY = ((sY / ( #items - h )) * (h-b_l-2)) +2
     scroll_bar.reposition(j,nY,1,b_l)
+    f.cprint(down_bar,20,1,index.last_dest,"blue","lightGray")
 end
