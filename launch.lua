@@ -53,6 +53,8 @@ function setWindows()
         f.cprint(b3,1,1,"x","lightGray","white") end}
     bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.public_settings_access)) bs.reset = {bg_color="white",printText = function()
         f.centerText(bs,2,"settings","black","white") end}
+        bs.active =  {bg_color="black",printText = function()
+        f.centerText(bs,2,"settings","yellow","black") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
         bg3.isVisible = false
