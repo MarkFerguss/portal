@@ -51,7 +51,7 @@ function setWindows()
         f.centerText(b2,2,"leave","gray","red") end}
     b3 = f.addWin(bg2,bg2.size[1]-1,9,1,1) b3.reset = {bg_color="white",printText = function()
         f.cprint(b3,1,1,"x","lightGray","white") end}
-    bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.settings_public_access)) bs.reset = {bg_color="white",printText = function()
+    bs = f.addWin(up_bar,w-10,1,w,1,_tb(index.public_settings_access)) bs.reset = {bg_color="white",printText = function()
         f.centerText(bs,2,"settings","black","white") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
@@ -204,6 +204,7 @@ while true do
                 bs.apply("reset")
                 bg3.setVisible(false)
             end
+        end
     end
     index.selected = selected
     f.update("/portal/config.txt",index)
