@@ -192,6 +192,6 @@ while true do
     local b_l = ((h-2)/#items)*h
     local Dy = h-#items
     local Db = h-b_l
-    local nY = Db * (list.pos[1] / Dy)
+    local nY = Db * (list.pos[2] / Dy)
     scroll_bar.reposition(j,nY,1,b_l)
 end
