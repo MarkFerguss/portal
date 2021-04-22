@@ -75,7 +75,8 @@ function reset()
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
         b4.apply("reset") b5.apply("reset") b4r.apply("reset") b5r.apply("reset")
-        f.cprint(bg3,8,1,display[selected][2],display[selected][3],"gray")
+        if display[selected][3] == "gray" then temp_c = "yellow" else temp_c = display[selected][3] end
+        f.cprint(bg3,8,1,display[selected][2],temp_c,"gray")
     else
         bs.apply("reset") bs.redraw()
         if vn(q) then
@@ -190,19 +191,19 @@ while true do
             xc = e[3]-bg2.pos[1]+1 yc = e[4]-bg2.pos[2]+1
             if bg3.isVisible then
                 if b4.isClicked(xc,yc) and bg3.isVisible then
-                    if not f.check(index.grp1,display[selected][2]) then
+                    if not f.check(index.grp1,display[selected][2]) and not f.check(index.grp2,display[selected][2]) then
                         table.insert(index.grp1,display[selected][2])
                     end
                 elseif b4r.isClicked(xc,yc) and bg3.isVisible then
-                    if not f.check(index.grp1,display[selected][2]) then
+                    if f.check(index.grp1,display[selected][2]) then
                         table.remove(index.grp1,display[selected][2])
                     end
                 elseif b5.isClicked(xc,yc) and bg3.isVisible then
-                    if not f.check(index.grp2,display[selected][2]) then
+                    if not f.check(index.grp2,display[selected][2]) and not f.check(index.grp1,display[selected][2]) then
                         table.insert(index.grp2,display[selected][2])
                     end
                 elseif b5r.isClicked(xc,yc) and bg3.isVisible then
-                    if not f.check(index.grp2,display[selected][2]) then
+                    if f.check(index.grp2,display[selected][2]) then
                         table.remove(index.grp2,display[selected][2])
                     end
                 end
