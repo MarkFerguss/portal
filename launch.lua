@@ -1,31 +1,14 @@
 local arg = ...
+local version = "1.13" --(31/07/2020)
+os.loadAPI("/portal/lib/f") 
+os.loadAPI("/portal/lib/API") 
 
 local _ts = tostring
 local _tn = tonumber
 local function _tb(_t) return _t == "true" end
 
-local function update(path,input)
-    local f = fs.open(path,"w")
-    f.write(textutils.serialise(input))
-    f.close()
-end
-
-local function _load(path)
-    local f = fs.open(path,"r")
-    output = textutils.unserialise(f.readAll())
-    f.close()
-    return output
-end
-
 if not fs.exists("/portal/config.txt") then shell.run("/portal/setup") end
-
--- DEBUT DU PROGRAMME
-
-local version = "1.13" --(31/07/2020)
-os.loadAPI("/portal/lib/f") 
-os.loadAPI("/portal/lib/API") 
-
-local index = _load("/portal/config.txt")
+local index = f.load("/portal/config.txt")
 
 function _getp()
     local p = peripheral.find(index.chest_type) 
@@ -45,6 +28,8 @@ local side,rside = index.chest_side,f._rvdir(index.chest_side)
 local c_grp1,c_grp2 = _ts(index.group1_color),_ts(index.group2_color)
 local w,h = m.getSize()
  
+-- TOOLS
+
 function vn(arg) return arg ~= nil end
  
 function setWindows()
@@ -149,8 +134,7 @@ function search(entry)
     end
 end
  
-setWindows() reset()
-pulse()
+_getp() setWindows() reset() pulse()
 if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-following",volume,"1","false") end
 shell.run(index.launch_event)
 if _tb(index.moderator_chest) then shell.run("bg","/portal/moderator") end
@@ -202,6 +186,6 @@ while true do
         end
     end
     index.selected = selected
-    update("/portal/config.txt",index)
+    f.update("/portal/config.txt",index)
     if e[1] == "char" then search(e[2]) end
 end
