@@ -98,10 +98,10 @@ end
 function tbl_remove(_tbl,_str)
   for i,v in pairs(_tbl) do
     if v == _str then
-      local _temp = table.remove(_tbl,i)
+      table.remove(_tbl,i)
     end
   end
-  return _temp
+  return _tbl
 end
 function itrv(x,y,z)
   if x == nil or y == nil or z == nil then
