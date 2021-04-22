@@ -8,29 +8,40 @@ local str1 = [[
 
 local str2 = [[
 
-	Project 'portal' has been succesfully downloaded.
-	Would you like to proceed to the setup now ? (y/n)
+	Portal project successfully downloaded!
+	type 'launch' to start the program.
 
 ]]
+
+local function download(path,content)
+	if fs.exists(path) then fs.remove(path) end
+	f = fs.open(path,"w")
+	f.write(content)
+	f.close()
+end
+
+if not fs.exists("/portal/lib/f") then
+	download("/portal/lib/f",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/f.lua")
+end
+if not fs.exists("/portal/lib/API") then
+	download("/portal/lib/API",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/API.lua")
+end
+if not fs.exists("/portal/lib/soundAPI") then
+	download("/portal/lib/soundAPI",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/soundAPI.lua")
+end
+if not fs.exists("/portal/moderator") then
+	download("/portal/moderator",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/moderator.lua")
+end
+if not fs.exists("/portal/setup") then
+	download("/portal/setup",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/setup.lua")
+end
 
 if not fs.exists("/portal/launch") then
 	print(str1)
 	if read() == "y" then
-		shell.run("/github","MarkFerguss","portal","/")
-		fs.move("/portal/launch.lua","/portal/launch")
-        fs.move("/portal/moderator.lua","/portal/moderator")
-		fs.move("/portal/lib/f.lua","/portal/lib/f")
-		fs.move("/portal/lib/soundAPI.lua","/portal/lib/soundAPI")
-		fs.move("/portal/lib/API.lua","/portal/lib/API")
-		if fs.exists("/config.txt") then
-	    	fs.move("/config.txt","/portal/config.txt")
-		end
-		term.clear()
-		print(str2)
-		e = read()
-		if e == "y" then
-			shell.run("/portal/launch","setup")
-		end
-		term.clear()
+		download("/portal/launch",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/launch.lua"))
 	end
+	shell.run([[cd /portal]])
+	print(str2)
 end
+
