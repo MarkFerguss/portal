@@ -193,9 +193,17 @@ while true do
                     if not f.check(index.grp1,display[selected][2]) then
                         table.insert(index.grp1,display[selected][2])
                     end
-                    elseif b5.isClicked(xc,yc) and bg3.isVisible then
-                        if not f.check(index.grp2,display[selected][2]) then
+                elseif b4r.isClicked(xc,yc) and bg3.isVisible then
+                    if not f.check(index.grp1,display[selected][2]) then
+                        table.remove(index.grp1,display[selected][2])
+                    end
+                elseif b5.isClicked(xc,yc) and bg3.isVisible then
+                    if not f.check(index.grp2,display[selected][2]) then
                         table.insert(index.grp2,display[selected][2])
+                    end
+                elseif b5r.isClicked(xc,yc) and bg3.isVisible then
+                    if not f.check(index.grp2,display[selected][2]) then
+                        table.remove(index.grp2,display[selected][2])
                     end
                 end
             else
