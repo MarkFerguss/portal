@@ -59,13 +59,13 @@ function setWindows()
         f.cprint(bg3,2,1,"Name:   ","white","gray") end}
         bg3.isVisible = false
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,1,false) b4.reset = {bg_color="white",printText = function()
-        f.centerText(b4,1,"add to group","gray","white") end
+        f.centerText(b4,1,"add to group","gray","white") end}
     b4r = f.addWin(bg3,2,4,bg2.size[1]-2,1,false) b4.reset = {bg_color="lightGray",printText = function()
-        f.centerText(b4,1,"remove from group","gray","lightGray") end
+        f.centerText(b4,1,"remove from group","gray","lightGray") end}
     b5 = f.addWin(bg3,2,6,bg2.size[1]-2,1,false) b5.reset = {bg_color="white",printText = function()
         f.centerText(b5,1,"Add to group","gray","white") end}
     b5r = f.addWin(bg3,2,7,bg2.size[1]-2,1,false) b4.reset = {bg_color="lightGray",printText = function()
-        f.centerText(b4,1,"remove from group","gray","lightGray") end
+        f.centerText(b4,1,"remove from group","gray","lightGray") end}
 end
  
 function reset()
