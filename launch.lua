@@ -60,7 +60,7 @@ function setWindows()
         bg3.isVisible = false
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=index.group1_color,printText = function()
         f.centerText(b4,2,"Add to group","gray",index.group1_color) end}
-    b5 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b5.reset = {bg_color=index.group2_color,printText = function()
+    b5 = f.addWin(bg3,2,7,bg2.size[1]-2,3,false) b5.reset = {bg_color=index.group2_color,printText = function()
         f.centerText(b5,2,"Add to group","gray",index.group2_color) end}
 end
  
@@ -71,6 +71,7 @@ function reset()
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
         b4.apply("reset") b5.apply("reset")
+        f.cprint(bg3,8,1,display[selected][2],"yellow")
     else
         bs.apply("reset") bs.redraw()
         if vn(q) then
@@ -113,8 +114,8 @@ function getItems()
                 items[b] = {}
                 items[b][1] = a
                 items[b][2] = API.normalize(list_items[a].display_name)
-                if f.check(index.grp1,items[b][2]) then items[b][3] = _ts(index.group1_color)
-                elseif f.check(index.grp2,items[b][2]) then items[b][3] = _ts(index.group2_color)
+                if f.check(index.grp1,items[b][2]) then items[b][3] = index.group1_color
+                elseif f.check(index.grp2,items[b][2]) then items[b][3] = index.group2_color
                 else items[b][3] = "gray" end
                 b = b + 1
             end
@@ -208,6 +209,14 @@ while true do
                 bs.apply("reset")
                 bg3.setVisible(false) bg3.isVisible = false
                 b4.setVisible(false) b5.setVisible(false)
+            end
+        elseif b4.isClicked(e[3],e[4])
+            if not f.check(index.grp1,display[selected][2]) then
+                table.insert(index.grp1,display[selected][2])
+            end
+        elseif b4.isClicked(e[3],e[4])
+            if not f.check(index.grp2,display[selected][2]) then
+                table.insert(index.grp2,display[selected][2])
             end
         end
     end
