@@ -39,7 +39,7 @@ function setWindows()
         f.centerText(up_bar,1,"Select a destination","black","lightGray") end}
     down_bar = f.addWin(m,1,h,w,h) down_bar.reset = {bg_color="lightGray",printText = function()
         f.centerTextRight(down_bar,1,"v"..version,"black","lightGray")
-        f.cprint(down_bar,2,1,"Last destination: ","black","lightGray") end}
+        f.cprint(down_bar,1,1,"Last destination: ","black","lightGray") end}
     scroll_bar = f.addWin(m,w*(3/5),2,1,h-1) scroll_bar.reset = {bg_color="white"}
     bg2 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1) bg2.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Status: ","white","gray")
