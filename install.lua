@@ -21,19 +21,19 @@ local function download(path,content)
 end
 
 if not fs.exists("/portal/lib/f") then
-	download("/portal/lib/f",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/f.lua")
+	download("/portal/lib/f",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/f.lua"))
 end
 if not fs.exists("/portal/lib/API") then
-	download("/portal/lib/API",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/API.lua")
+	download("/portal/lib/API",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/API.lua"))
 end
 if not fs.exists("/portal/lib/soundAPI") then
-	download("/portal/lib/soundAPI",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/soundAPI.lua")
+	download("/portal/lib/soundAPI",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/lib/soundAPI.lua"))
 end
 if not fs.exists("/portal/moderator") then
-	download("/portal/moderator",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/moderator.lua")
+	download("/portal/moderator",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/moderator.lua"))
 end
 if not fs.exists("/portal/setup") then
-	download("/portal/setup",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/setup.lua")
+	download("/portal/setup",http.get("https://raw.githubusercontent.com/MarkFerguss/portal/main/setup.lua"))
 end
 
 if not fs.exists("/portal/launch") then
