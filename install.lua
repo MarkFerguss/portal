@@ -1,4 +1,7 @@
-local default_path = "/portal"
+local install_version = "1.0"
+
+shell.run([[pastebin run Xa4Bucuf]],install_version)
+
 local str1 = [[
 
 	Projet 'portal' doesn't seem to be installed.
@@ -23,6 +26,7 @@ end
 
 if not fs.exists("/portal/lib/f") then
 	download("/portal/lib/f","lib/f.lua")
+	print("/ /portal/lib/f downloaded")
 end
 if not fs.exists("/portal/lib/API") then
 	download("/portal/lib/API","lib/API.lua")
@@ -45,4 +49,3 @@ if not fs.exists("/portal/launch") then
 	shell.run([[cd /portal]])
 	print(str2)
 end
-
