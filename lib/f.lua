@@ -1,11 +1,25 @@
---[[ Mark_functions v.1.87 (22/04/2021)
-docs available soon
---]]
+local str = [[Mark_functions v.1.87 (22/04/2021)]]
+
+
+
+
+
 function progression_bar(m,x,y,length,curVal,bg_color,bar_color)
   drawLine(m,x,y,length,bg_color)
   percent_bar = curVal / 100 * length
   drawLine(m,x,y,percent_bar,bar_color)
 end
+local _progression_bar = [[
+Usage : progression_bar(m,x,y,length,curVal,bg_color,bar_color)
+
+    m : parent
+    x,y : position (x,y) of the progression bar on the object
+    length : length of the progression bar
+    curVal : give a percentage between 0 and 100
+    bg_color : progression bar background color
+    bar_color : progression bar color
+
+]]
 function drawLine(m,x,y,length,color)
   if length < 0 then
   length = 0
@@ -27,6 +41,10 @@ function centerText(m,y,text,color,bg_color)
   m.setTextColor(colors[color])
   m.write(text)
 end
+local _centerText = [[
+Usage : centerText(m,y,text,color,bg_color)
+
+]]
 function centerTextRight(m,y,text,color,bg_color)
   w, h = m.getSize()
   m.setCursorPos(w - (math.floor(#text)),y)
@@ -34,6 +52,10 @@ function centerTextRight(m,y,text,color,bg_color)
   m.setTextColor(colors[color])
   m.write(text)
 end
+local _centerTextRight = [[
+Usage : centerTextRight(m,y,text,color,bg_color)
+
+]]
 function print(m,text,color)
   m.setTextColor(colors[color])
   m.write(text.."\n")
@@ -41,6 +63,12 @@ function print(m,text,color)
   x,y = m.getCursorPos()
   m.setCursorPos(1,y+1)
 end
+local _print = [[
+Usage : print(m,text,color)
+
+bg_color back to white after use and go to the next line
+
+]]
 function cprint(m,x,y,text,color,bg_color)
   m.setCursorPos(x,y)
   m.setTextColor(colors[color])
@@ -49,12 +77,22 @@ function cprint(m,x,y,text,color,bg_color)
   m.setBackgroundColor(colors.black)
   m.setTextColor(colors.white)
 end
-function _rvdir(_dir) -- reverse direction. Exemple : east --> west
-  if _dir == "east" then return "west" end
-  if _dir == "west" then return "east" end
-  if _dir == "south" then return "north" end
-  if _dir == "north" then return "south" end
+local _cprint = [[
+Usage : function cprint(m,x,y,text,color,bg_color)
+
+]]
+function rvdir(dir)
+  if dir == "east" then return "west" end
+  if dir == "west" then return "east" end
+  if dir == "south" then return "north" end
+  if dir == "north" then return "south" end
 end
+local _rvdir = [[
+Usage : rvdir(dir)
+
+reverse direction. Exemple : east -> west
+
+]]
 function format_int(number)
   if number == nil then number = 0 end
   local i, j, minus, int, fraction = tostring(number):find('([-]?)(%d+)([.]?%d*)')
@@ -71,9 +109,6 @@ end
 function box(x,y,x1,y1,x2,y2)
   return (itrv(x,x1,x2) and itrv(y,y1,y2))
 end
-function vn(val)
-  return (val ~= nil)
-end
 local _box = [[
 Usage : box(x,y,x1,y1,x2,y2)
 
@@ -81,6 +116,9 @@ Usage : box(x,y,x1,y1,x2,y2)
     
     The function returns true if the value isn't 'nil' or false if it is.
 ]]
+function vn(val)
+  return (val ~= nil)
+end
 function cv(arg,cv1,param,cv2)
   if param == nil then error(_cv) end
   if param == "or" then return (arg == cv1 or arg == cv2) end
