@@ -60,12 +60,12 @@ function setWindows()
         bg3.isVisible = false
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,1,false) b4.reset = {bg_color="white",printText = function()
         f.centerText(b4,1,"add to group","gray","white") end}
-    b4r = f.addWin(bg3,2,4,bg2.size[1]-2,1,false) b4.reset = {bg_color="lightGray",printText = function()
-        f.centerText(b4,1,"remove from group","gray","lightGray") end}
+    b4r = f.addWin(bg3,2,4,bg2.size[1]-2,1,false) b4r.reset = {bg_color="lightGray",printText = function()
+        f.centerText(b4r,1,"remove from group","gray","lightGray") end}
     b5 = f.addWin(bg3,2,6,bg2.size[1]-2,1,false) b5.reset = {bg_color="white",printText = function()
         f.centerText(b5,1,"Add to group","gray","white") end}
-    b5r = f.addWin(bg3,2,7,bg2.size[1]-2,1,false) b4.reset = {bg_color="lightGray",printText = function()
-        f.centerText(b4,1,"remove from group","gray","lightGray") end}
+    b5r = f.addWin(bg3,2,7,bg2.size[1]-2,1,false) b5r.reset = {bg_color="lightGray",printText = function()
+        f.centerText(b5r,1,"remove from group","gray","lightGray") end}
 end
  
 function reset()
@@ -74,7 +74,7 @@ function reset()
     b1.apply("reset") b2.apply("reset") b3.apply("reset")
     if bg3.isVisible then
         bg3.redraw() bg3.apply("reset") bs.apply("active")
-        b4.apply("reset") b5.apply("reset")
+        b4.apply("reset") b5.apply("reset") b4r.apply("reset") b5r.apply("reset")
         f.cprint(bg3,8,1,display[selected][2],display[selected][3],"gray")
     else
         bs.apply("reset") bs.redraw()
@@ -220,11 +220,11 @@ while true do
             if not bg3.isVisible then
                 bs.apply("active")
                 bg3.setVisible(true) bg3.isVisible = true
-                b4.setVisible(true) b5.setVisible(true)
+                b4.setVisible(true) b5.setVisible(true) b4r.setVisible(true) b5r.setVisible(true)
             else
                 bs.apply("reset")
                 bg3.setVisible(false) bg3.isVisible = false
-                b4.setVisible(false) b5.setVisible(false)
+                b4.setVisible(false) b5.setVisible(false) b4r.setVisible(true) b5r.setVisible(true)
             end
        end
     end
