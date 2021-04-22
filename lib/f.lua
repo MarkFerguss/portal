@@ -232,13 +232,13 @@ local _addWin = [[
         Now, the object background will be filled in black with the printed text 'This is a button'
 ]]
 function update(path,input)
-    local f = fs.open(path,"w")
-    f.write(textutils.serialise(input))
-    f.close()
+    local h = fs.open(path,"w")
+    h.write(textutils.serialise(input))
+    h.close()
 end
 function load(path)
-    local f = fs.open(path,"r")
-    local output = textutils.unserialise(f.readAll())
-    f.close()
+    local h = fs.open(path,"r")
+    local output = textutils.unserialise(h.readAll())
+    h.close()
     return output
 end
