@@ -3,6 +3,7 @@ Start setup ?
 ]]
 
 local str2 = [[
+
  * chest_side =                     (east,west...)
  * chest_type =                (draconic_chest...)
  * public_settings_access =           (true/false)
