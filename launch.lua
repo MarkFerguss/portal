@@ -55,6 +55,7 @@ function setWindows()
         f.centerText(bs,2,"settings","black","white") end}
     bg3 = f.addWin(m,w*0.6+1,2,w*0.4+1,h-1,false) bg3.reset = {bg_color="gray",printText = function()
         f.cprint(bg2,2,1,"Name: ","white","gray") end}
+        bg3.isVisible = false
     b4 = f.addWin(bg3,2,3,bg2.size[1]-2,3,false) b4.reset = {bg_color=c_grp1,printText = function()
         f.centerText(b4,2,"Add to group","gray",c_grp1) end}
     b5 = f.addWin(bg3,2,18,bg2.size[1]-2,3,false) b5.reset = {bg_color=c_grp2,printText = function()
@@ -65,6 +66,9 @@ function reset()
     bg.apply("reset") bg2.apply("reset") list.apply("reset")
     up_bar.apply("reset") down_bar.apply("reset") scroll_bar.apply("reset")
     bs.apply("reset") bs1.apply("reset") b1.apply("reset") b2.apply("reset") b3.apply("reset")
+    if bg3.isVisible then
+        bg3.redraw() bg3.apply("reset") 
+    end
     if vn(q) then
         local stq = q.getAllStacks()
         if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
@@ -81,7 +85,19 @@ function pulse()
         q.pushItem(rside,1)
     end
 end
- 
+
+function push()
+    up_bar.clear()
+    f.centerText(up_bar,1,"opening...","black")
+    bs.redraw()
+    pulse()
+    sleep(0.5)
+    p.pushItem(side,display[selected][1])
+    if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false") end
+    index.last_dest = display[selected][2]
+    getItems()
+end
+
 function getItems()
     local b = 1
     items = {}
@@ -107,7 +123,7 @@ function list_display()
   for c=1,#display do
     if c == selected then
       f.drawLine(list,1,c,w,"red")
-      f.centerTextRight(list,c,"ouvrir","white")
+      if not bg3.isVisible then f.centerTextRight(list,c,"ouvrir","white") end
     else
       list.setBackgroundColor(colors.black)
     end
@@ -153,14 +169,7 @@ while true do
     if e[1] == "monitor_resize" then _getp() setWindows() end
     if e[1] == "monitor_touch" or e[1] == "mouse_click" then
         if e[4]-y+1 == selected and display[selected] ~= nil and e[3] < j-1 then
-            up_bar.clear()
-            f.centerText(up_bar,1,"opening...","black")
-            pulse()
-            sleep(0.5)
-            p.pushItem(side,display[selected][1])
-            if _tb(index.use_soundAPI) then shell.run("/portal/lib/soundAPI","mystcraft:linking.link-fissure",volume,"1","false") end
-            index.last_dest = display[selected][2]
-            getItems()
+            if bg3.isVisible then push() end
         elseif e[4] > 1 and e[3] < j-1 then
             selected = e[4]-y+1
         elseif (e[3] == j and e[4] == 2) then
