@@ -27,7 +27,7 @@ local list_items,items,stq = {},{},{}
 local a,b,c,volume = 1,1,1,100
 local selected = index.selected
 local side,rside = index.chest_side,f.rvdir(index.chest_side)
-local c_grp1,c_grp2 = _ts(index.group1_color),_ts(index.group2_color)
+local c1,c2 = colors[_ts(index.group1_color)],colors[_ts(index.group2_color)]
  
 -- TOOLS
 
@@ -91,8 +91,8 @@ function getItems()
                 items[b] = {}
                 items[b][1] = a
                 items[b][2] = API.normalize(list_items[a].display_name)
-                if API.check(index.grp1,items[b][2]) then items[b][3] = colors[c_grp1]
-                elseif API.check(index.grp2,items[b][2]) then items[b][3] = colors[c_grp2]
+                if API.check(index.grp1,items[b][2]) then items[b][3] = c1
+                elseif API.check(index.grp2,items[b][2]) then items[b][3] = c2
                 else items[b][3] = "gray" end
                 b = b + 1
             end
