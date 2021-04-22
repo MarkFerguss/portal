@@ -1,5 +1,4 @@
---[[ Mark_functions v.1.86 (12/08/2020 20:51)
-call os.loadAPI("f")
+--[[ Mark_functions v.1.87 (22/04/2021)
 docs available soon
 --]]
 function progression_bar(m,x,y,length,curVal,bg_color,bar_color)
@@ -75,17 +74,21 @@ end
 function vn(val)
   return (val ~= nil)
 end
---[[
+local _box = [[
+Usage : box(x,y,x1,y1,x2,y2)
+
     val : a string, table, number or function
     
     The function returns true if the value isn't 'nil' or false if it is.
---]]
+]]
 function cv(arg,cv1,param,cv2)
-  if param == nil then error("No parameter found : usage cv(arg,val1,param,val2)") end
+  if param == nil then error(_cv) end
   if param == "or" then return (arg == cv1 or arg == cv2) end
   if param == "and" then return (arg == cv1 and arg == cv2)  end
 end
---[[
+local _cv = [[
+Usage : cv(arg,cv1,param,cv2)
+
     arg : the value you want to compare
     cv1 : value1
     cv2 : value2
@@ -94,7 +97,8 @@ end
     parameters :
         - 'or' will compare if (arg == cv1 or arg == cv2)
         - 'and' will compare if (arg == cv1 and arg == cv2)
---]]
+
+]]
 function check(list,name)
     local check = false
     for i,v in pairs(list) do
@@ -107,7 +111,7 @@ function check(list,name)
 end
 function addWin(m,x1,y1,x2,y2,_v)
     if m == nil then
-        error("No object found")
+        error(_addWin)
     end
     local b = window.create(m,x1,y1,x2,y2,_v)
     b.isWindow = true
@@ -170,7 +174,7 @@ function addWin(m,x1,y1,x2,y2,_v)
     b.update()
     return b
 end
---[[
+local _addWin = [[
     m : parent (window object, term.native(), monitor ...)
     x1, y1 : relative position on the parent (screen)
     x2, y2 : do not confuse with coordinates. Those are length and width of the object
@@ -192,7 +196,7 @@ end
         -           window.reset = {bg_color = "back", printText = function() print("This is a button") end}
         -           window.apply("reset")
         Now, the object background will be filled in black with the printed text 'This is a button'
---]]
+]]
 function update(path,input)
     local f = fs.open(path,"w")
     f.write(textutils.serialise(input))
