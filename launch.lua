@@ -225,7 +225,7 @@ while true do
                     word = ""
                 end
             end
-        elseif bs.isClicked(e[3],e[4]) then
+        elseif bs.isClicked(e[3],e[4]) and index.public_settings_access then
             if not bg3.isVisible then
                 bs.apply("active")
                 bg3.setVisible(true) bg3.isVisible = true
