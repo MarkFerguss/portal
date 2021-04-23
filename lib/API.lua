@@ -66,12 +66,13 @@ local ct = {
 }
 
 function animation1(m,x,y,l)
-  for i=0,l do
+  for i=0,(l-1) do
     local _color = ct[math.random(1,#ct)]
     m.setCursorPos(x+i,y)
     m.setBackgroundColor(colors[_color])
     m.write(" ")
     m.setBackgroundColor(colors.black)
+    sleep(0.05)
   end
 end
 -- descendre plus bas conduit a un crash de l'editeur
