@@ -42,13 +42,6 @@ function read(m,length,bg_color,input)
   return input, ev, p1
 end
  
-function check(list,name)
-  local chk = false
-  for i,v in pairs(list) do
-    if string.find(name,v) ~= nil then chk = true end
-  end
-  if chk == true then return true else return false end
-end
 function unlock(p,word)
   local chestSize = p.getInventorySize()
   list = {}
@@ -62,7 +55,25 @@ function unlock(p,word)
   end
 end
  
- 
+local ct = {
+  "lightBlue",
+  "yellow",
+  "pink",
+  "magenta",
+  "cyan",
+  "purple",
+  "green",
+}
+
+function animation1(m,x,y,l)
+  for i=0,l do
+    local _color = ct[math.random(1,#ct)]
+    m.setCursorPos(x+i,y)
+    m.setBackgroundColor(colors[_color])
+    m.write(" ")
+    m.setBackgroundColor(colors.black)
+  end
+end
 -- descendre plus bas conduit a un crash de l'editeur
  
 
