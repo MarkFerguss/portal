@@ -81,8 +81,8 @@ function reset()
         bs.apply("reset") bs.redraw()
         if vn(q) then
             local stq = q.getAllStacks()
-            if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
-            else f.cprint(bg2,10,1,"closed","yellow","gray") end
+            if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray") API.animation1(bg2,2,14,bg2.size[1]-2.4)
+            else f.cprint(bg2,10,1,"closed","yellow","gray") f.drawLine(bg2,2,14,bg2.size[1]-2.4,"black") end
         end
         if word ~= nil then f.cprint(bg2,2,9,word,"gray","lightGray") end
     end
@@ -127,7 +127,7 @@ function getItems()
         end
     end
     table.sort(items, function(a, b) return a[2] < b[2] end)
-    if display == nil then display = items end
+    if display == nil or display = {} then display = items end
 end
  
 function list_display()
@@ -207,6 +207,7 @@ while true do
                         index.grp2 = f.tbl_remove(index.grp2,display[selected][2])
                     end
                 end
+               display = nil getItems() list_display() 
             else
                 if b1.isClicked(xc,yc) and not bg3.isVisible then
                     up_bar.clear()
