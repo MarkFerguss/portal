@@ -81,8 +81,8 @@ function reset()
         bs.apply("reset") bs.redraw()
         if vn(q) then
             local stq = q.getAllStacks()
-            if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray") API.animation1(bg2,2,16,bg2.size[1]-2.4)
-            else f.cprint(bg2,10,1,"closed","yellow","gray") f.drawLine(bg2,2,16,bg2.size[1]-2.4,"black") end
+            if stq[1] ~= nil then f.cprint(bg2,10,1,"opened","green","gray")
+            else f.cprint(bg2,10,1,"closed","yellow","gray") end
         end
         if word ~= nil then f.cprint(bg2,2,9,word,"gray","lightGray") end
     end
