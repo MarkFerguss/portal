@@ -12,7 +12,7 @@ W.I.P
 - Map
 - Introduction to Portal and its basic installation
 - Introduction to the various functionalities offered by Portal
-- Presentation of the hidden side of Portal: the code
+- Presentation of the hidden part of Portal: the code
 
 
 ## Introduction to Portal and its basic installation ##
@@ -63,15 +63,15 @@ This mass of code may seem complicated to understand but each line has its own f
   group2_color = "lime",
 ```
 
-1. `chest_side` : this variable allows to indicate to the program the direction of the Draconic Receptacle with respect to the chest listing all the charms. To obtain this information, simply press the F3 key in play and note the detail (SOUTH, WEST, EAST, or NORTH) which is displayed in brackets.
-2. `chest_type`: which can also be called `chest_name` since the function used accepts both (peripheral.find(...)). If it is a Draconic chest, it should be written as `draconic_chest` and if it is a vanilla chest, as `chest`. **NOTE: the use of a ME network as a directory has not yet been tried and requires modifications in some code blocks anyway. But if you are good at Computercraft, you are of course free to try.**.
+1. `chest_side` : this variable allows to indicate to the program the direction of the Draconic Receptacle from the main chest. To obtain this information, simply press the F3 key in-game and note the detail (SOUTH, WEST, EAST, or NORTH) which is displayed in brackets.
+2. `chest_type`: which can also be called `chest_name` since the function used accepts both (peripheral.find(...)). If it is a Draconic chest, it should be written as `draconic_chest` and if it is a vanilla chest, as `chest`. **NOTE: the use of a ME network as a directory has not yet been tried and requires modifications in some of the code blocks anyway. But if you're good at Computercraft, you are free to try.**.
 3. `public_settings_access` : is an option to display or not the options button where you can change the interface settings. If you are a server administrator and you want to operate the program in such a way that players do not have access to the public interface options, then I recommend that you write 'false' to this line.
 4. `use_soundAPI`: another option which has no impact on the proper functioning of the interface. It is simply used to play sounds with a `note_block`.
 5. `use_monitor` : to specify the use of a monitor
 6. `monitor_scale` : the monitor pixel scale (0.5 / 1 / 2 / 3 / 4 / 5)
-7. `moderator_chest` : 'moderator.lua' is a subroutine which allows to manage the incoming charms in the system. This subroutine can be useful in a place where everyone can share their details to avoid having to approve Charms manually.
+7. `moderator_chest` : 'moderator.lua' is a subroutine which allows to manage the incoming charms in the system. This subroutine can be useful in a place where everyone can share their coordinates without having to approve Charms manually.
 
-## Presentation of the hidden side of Portal: the code
+## Presentation of the hidden part of Portal: the code
 
 The Portal module consists of an organized directory labeled '/Portal' in which we find these files:
 
@@ -86,6 +86,3 @@ The Portal module consists of an organized directory labeled '/Portal' in which 
 >> /setup
 >> /config.txt
 ```
-
-
-Translated with www.DeepL.com/Translator (free version)
