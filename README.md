@@ -1,53 +1,52 @@
 # portal
 
-## Avant-propos : ##
+## Foreword: ##
 
 W.I.P
 
 ![charm](https://ftbwiki.org/images/8/89/Item_Charm_of_Dislocation.png)
 
-## Plan du README ##
+## Map of README ##
 
-- Avant-propos
-- Plan
-- Introduction à Portal et son installation de base
-- Introduction aux différentes fonctionnalités offertes par Portal
-- Présentation de la face cachée de Portal : le code
-- L'organisation des versions
+- Foreword
+- Map
+- Introduction to Portal and its basic installation
+- Introduction to the various functionalities offered by Portal
+- Presentation of the hidden side of Portal: the code
 
 
-## Introduction à Portal et son installation de base ##
+## Introduction to Portal and its basic installation ##
 
-### Infos générales ###
+### General informations ###
 
-Ce programme utilise le portail du mod `Draconic Evolution` et les mods `ComputerCraft`, `OpenPeripherals Addons`.
+This program uses the Draconic Portal from `Draconic Evolution` and the mods `ComputerCraft`, `OpenPeripherals Addons`.
 
 
 ### Installation ###
 
-Pour une utilisation simple du programme, je vous invite à suivre ces instructions en vous aidant du schéma pour comprendre le fonctionnement du portail et le reproduire dans votre base :
+For a simple use of the program, I invite you to follow these instructions with the help of the diagram to understand how the portal works and reproduce it in your base:
 
-1. Construire un portail de Draconic Infused Obsidian et placer le Draconic Receptacle à un des sommets du portail
-2. Placer un coffre (la nature du coffre devra être mentionnée dans l'initialisation du programme) de manière à ce qu'une des faces soit en contact avec le Receptacle et qu'aucun bloc n'empêche pas l'ouverture du coffre.
-3. Connecter les périphériques à un réseau de Networking Cables à l'aide des Peripheral Proxys offerts par `OpenPeripherals Addons`
-4. Placer un Computer dans lequel vous taperez cette commande : [pastebin run Xa4Bucuf](https://pastebin.com/Xa4Bucuf)
+1. Build a Draconic Infused Obsidian portal and place the Draconic Receptacle at one of the portal's vertices
+2. Place a chest (the nature of the chest must be mentioned in the initialization of the program) so that one of the faces is in contact with the Receptacle and that no block prevents the opening of the chest.
+3. Connect the devices to a network of Networking Cables using the Peripheral Proxies from `OpenPeripherals Addons`.
+4. Place a Computer in which you type this command: [pastebin run Xa4Bucuf](https://pastebin.com/Xa4Bucuf)
 
-Voici un schéma des différents blocs utilisés pour l'installation :
+Here is a diagram of the different blocks used for the installation:
 
-![Me prévenir si l'image ne s'affiche pas](https://i.ibb.co/fSKPDyj/2021-04-04-17-06-03.jpg)
+![Warn me if the image is not displayed](https://i.ibb.co/fSKPDyj/2021-04-04-17-06-03.jpg)
 
-Et voici à quoi peut ressembler l'interface une fois installée :
+And here is what the interface can look like once installed:
 
-![Me prévenir si l'image ne s'affiche pas](https://forum.mineaurion.com/assets/uploads/files/1590413050682-2020-05-25_15.22.24.png)
+![Notify me if the image does not appear](https://forum.mineaurion.com/assets/uploads/files/1590413050682-2020-05-25_15.22.24.png)
 
-### Utilisation de Portal ###
+### Using Portal ###
 
 W.I.P
 
-## Introduction aux différentes fonctionnalités offertes par Portal ##
+## Introduction to the different features offered by Portal ##
 
-Toutes les fonctionnalités se configurent dès l'installation du programme et se présentent sous cette forme dans le fichier config.txt.
-Cette masse de code peut paraître compliquée à comprendre mais chaque ligne a sa propre fonction, il suffit de mettre du sens sur le nom de chaque variable.
+All the features are configured as soon as the program is installed and are can be find in the config.txt file in this form :
+This mass of code may seem complicated to understand but each line has its own function.
 
 
 ```
@@ -64,17 +63,17 @@ Cette masse de code peut paraître compliquée à comprendre mais chaque ligne a
   group2_color = "lime",
 ```
 
-1. `chest_side` : cette variable permet d'indiquer au programme la direction du Draconic Receptacle par rapport au coffre répertoriant toutes les charms. Pour obtenir cette information, il suffit d'appuyer, en jeu, sur la touche F3 et de noter le détail (SOUTH, WEST, EAST, ou NORTH) qui s'affiche entre paranthèses.
-2. `chest_type` : qui peut également s'appeller `chest_name` puisque la fonction utilisée accepte les deux (peripheral.find(...)). S'il s'agit d'un coffre Draconic, il faudra noter 'draconic_chest' et s'il s'agit d'un coffre vanilla, 'chest'. **NOTE : l'utilisation d'un réseau ME comme répertoire n'a pas encore été essayé et nécessite de toute manière des modifications dans certains blocs du code. Mais si vous êtes calés en Computercraft, vous êtes bien évidemment libres d'essayer.**
-3. `public_settings_access` : est une option qui permet d'afficher ou non le bouton des options dans lequel on peut changer les configurations de l'interface. Si vous êtes l'administrateur d'un serveur et que vous voulez exploiter le programme de manière à ce que les joueurs n'accèdent pas aux options d'une interface publique, alors je vous recommande d'écrire 'false' à cette ligne.
-4. `use_soundAPI` : une autre option qui elle n'a pas d'impacte sur le bon fonctionnement de l'interface. Elle sert simplement à jouer des sons avec un `note_bloc`
-5. `use_monitor` : pour spécifier l'usage d'un moniteur
-6. `monitor_scale` : l'échelle de pixels du moniteur (0.5 / 1 / 2 / 3 / 4 / 5)
-7. `moderator_chest` : 'moderator.lua' est un sous-programme qui permet de gérer les Charms entrantes dans le systèmes. Ce sous-programme peut être pratique dans un lieu où tout le monde peut partager ses coordonnées afin d'éviter de devoir approuver les Charms manuellement.
+1. `chest_side` : this variable allows to indicate to the program the direction of the Draconic Receptacle with respect to the chest listing all the charms. To obtain this information, simply press the F3 key in play and note the detail (SOUTH, WEST, EAST, or NORTH) which is displayed in brackets.
+2. `chest_type`: which can also be called `chest_name` since the function used accepts both (peripheral.find(...)). If it is a Draconic chest, it should be written as `draconic_chest` and if it is a vanilla chest, as `chest`. **NOTE: the use of a ME network as a directory has not yet been tried and requires modifications in some code blocks anyway. But if you are good at Computercraft, you are of course free to try.**.
+3. `public_settings_access` : is an option to display or not the options button where you can change the interface settings. If you are a server administrator and you want to operate the program in such a way that players do not have access to the public interface options, then I recommend that you write 'false' to this line.
+4. `use_soundAPI`: another option which has no impact on the proper functioning of the interface. It is simply used to play sounds with a `note_block`.
+5. `use_monitor` : to specify the use of a monitor
+6. `monitor_scale` : the monitor pixel scale (0.5 / 1 / 2 / 3 / 4 / 5)
+7. `moderator_chest` : 'moderator.lua' is a subroutine which allows to manage the incoming charms in the system. This subroutine can be useful in a place where everyone can share their details to avoid having to approve Charms manually.
 
-## Présentation de la face cachée de Portal : le code ##
+## Presentation of the hidden side of Portal: the code
 
-Le module Portal consiste en un répértoire organisé labelisé '/Portal' dans lequel on retrouve ces fichiers :
+The Portal module consists of an organized directory labeled '/Portal' in which we find these files:
 
 ```
 > /portal
@@ -83,14 +82,10 @@ Le module Portal consiste en un répértoire organisé labelisé '/Portal' dans 
 >>> /API
 >>> /soundAPI
 >> /launch
+>> /moderator
+>> /setup
 >> /config.txt
 ```
 
 
-## L'organisation des mises à jour ##
-
-W.I.P
-
-### TAGS ###
-
-draconic portal, computercraft, draconic evolution, interface, charm of dislocation, automatic, design
+Translated with www.DeepL.com/Translator (free version)
