@@ -63,7 +63,7 @@ This mass of code may seem complicated to understand but each line has its own f
 4. `use_soundAPI`: another option which has no impact on the proper functioning of the interface. It is simply used to play sounds with a `note_block`.
 5. `use_monitor` : to specify the use of a monitor
 6. `monitor_scale` : the monitor pixel scale (0.5 / 1 / 2 / 3 / 4 / 5)
-7. `moderator_chest` : 'moderator.lua' is a subroutine which allows to manage the incoming charms in the system. This subroutine can be useful in a place where everyone can share their coordinates without having to approve Charms manually.
+7. `moderator_chest` : 'moderator.lua' is a subroutine which allows to automacticly manage the incoming charms in the system. This subroutine can be useful if the portal is used in a public place. In this manner, you won't have to manually put the charms in the main chest, which allows unknown players to share their coordinates.
 
 ## Presentation of the hidden part of Portal: the code
 
