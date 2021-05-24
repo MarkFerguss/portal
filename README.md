@@ -1,18 +1,11 @@
 # portal
 
-## Foreword: ##
+## Map of the README ##
 
-W.I.P
-
-![charm](https://ftbwiki.org/images/8/89/Item_Charm_of_Dislocation.png)
-
-## Map of README ##
-
-- Foreword
 - Map
 - Introduction to Portal and its basic installation
-- Introduction to the various functionalities offered by Portal
-- Presentation of the hidden part of Portal: the code
+- The various functionalities
+- The hidden part of Portal
 
 
 ## Introduction to Portal and its basic installation ##
@@ -21,12 +14,13 @@ W.I.P
 
 This program uses the Draconic Portal from `Draconic Evolution` and the mods `ComputerCraft`, `OpenPeripherals Addons`.
 
+![charm](https://ftbwiki.org/images/8/89/Item_Charm_of_Dislocation.png)
 
 ### Installation ###
 
-For a simple use of the program, I invite you to follow these instructions with the help of the diagram to understand how the portal works and reproduce it in your base:
+For a simple use of the program, I invite you to follow these instructions with the help of the diagram to understand how the portal works and reproduce it in your own base:
 
-1. Build a Draconic Infused Obsidian portal and place the Draconic Receptacle at one of the portal's vertices
+1. Build a Draconic Infused Obsidian portal and place the Draconic Receptacle at one of the corners of the portal
 2. Place a chest (the nature of the chest must be mentioned in the initialization of the program) so that one of the faces is in contact with the Receptacle and that no block prevents the opening of the chest.
 3. Connect the devices to a network of Networking Cables using the Peripheral Proxies from `OpenPeripherals Addons`.
 4. Place a Computer in which you type this command: [pastebin run Xa4Bucuf](https://pastebin.com/Xa4Bucuf)
@@ -45,7 +39,7 @@ W.I.P
 
 ## Introduction to the different features offered by Portal ##
 
-All the features are configured as soon as the program is installed and are can be find in the config.txt file in this form :
+All the features are configured as soon as the program is installed and can be find in the config.txt file :
 This mass of code may seem complicated to understand but each line has its own function.
 
 
