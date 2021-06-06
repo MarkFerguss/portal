@@ -1,6 +1,6 @@
 # portal
 
-## Map of the README ##
+## README (map) ##
 
 - Map
 - Introduction to Portal and its basic installation
