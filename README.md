@@ -20,12 +20,12 @@ This program uses the Draconic Portal from `Draconic Evolution` and the mods `Co
 
 For a simple use of the program, I invite you to follow these instructions with the help of the diagram to understand how the portal works and reproduce it in your own base:
 
-1. Build a Draconic Infused Obsidian portal and place the Draconic Receptacle at one of the corners of the portal
+1. Build a Draconic Infused Obsidian portal and place the Draconic Receptacle at one of the corners
 2. Place a chest (the nature of the chest must be mentioned in the initialization of the program) so that one of the faces is in contact with the Receptacle and that no block prevents the opening of the chest.
 3. Connect the devices to a network of Networking Cables using the Peripheral Proxies from `OpenPeripherals Addons`.
 4. Place a Computer in which you type this command: [pastebin run Xa4Bucuf](https://pastebin.com/Xa4Bucuf)
 
-Here is a diagram of the different blocks used for the installation:
+Here is a diagram of the different blocks you need for the installation:
 
 ![Warn me if the image is not displayed](https://i.ibb.co/fSKPDyj/2021-04-04-17-06-03.jpg)
 
