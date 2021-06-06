@@ -1,5 +1,7 @@
 # portal
 
+![Notify me if the image does not appear](https://i.ibb.co/KGpDZnQ/2021-06-06-16-07-57.png)
+
 ## README (map) ##
 
 - Map
@@ -34,7 +36,6 @@ Here is a diagram of the different blocks you need for the installation:
 And here is what the interface can look like once installed:
 
 ![Notify me if the image does not appear](https://forum.mineaurion.com/assets/uploads/files/1590413050682-2020-05-25_15.22.24.png)
-![Notify me if the image does not appear](https://i.ibb.co/KGpDZnQ/2021-06-06-16-07-57.png)
 
 ### Using Portal ###
 
