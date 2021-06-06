@@ -12,7 +12,9 @@
 
 ### General informations ###
 
-This program uses the Draconic Portal from `Draconic Evolution` and the mods `ComputerCraft`, `OpenPeripherals Addons`.
+- This program uses the Draconic Portal from `Draconic Evolution` and the mods `ComputerCraft`, `OpenPeripherals Addons`.
+- Works for Infinity Evolved 1.7.10
+- Uses Charms of Dislocations
 
 ![charm](https://ftbwiki.org/images/8/89/Item_Charm_of_Dislocation.png)
 
